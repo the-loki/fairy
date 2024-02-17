@@ -3,3 +3,19 @@
 //
 
 #include "Surface.h"
+
+namespace fairy::runtime::platform {
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -14,9 +14,9 @@ enum class SurfaceType {
 
 class Surface {
 public:
-	Surface() = default;
+  Surface() = default;
 public:
-	SurfaceType type;
+  SurfaceType type;
 };
 
 }
