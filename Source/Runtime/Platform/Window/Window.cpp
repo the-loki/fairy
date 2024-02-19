@@ -12,9 +12,11 @@ static void print_glfw_error(int error, const char* description)
 	printf("GLFW Error %d: %s\n", error, description);
 }
 
-Window::Window(const CreateWindowConfig& config)
-		:size(config.size), title(config.title), window(nullptr), graphics_context(nullptr)
+
+void Window::init(const InitWindowConfig& config)
 {
+    size = config.size;
+    title = config.title;
 }
 
 bool Window::init_webgpu()

@@ -1,12 +1,15 @@
 #include <Runtime/Engine.h>
 
+
+
 int main()
 {
-	fairy::runtime::Engine engine;
+    fairy::runtime::Engine engine;
+    auto config = fairy::runtime::InitEngineConfig();
 
-	if (engine.init()) {
-		engine.start_main_loop();
-	}
+    if (engine.init(config)) {
+        engine.start_main_loop();
+    }
 }
 
 

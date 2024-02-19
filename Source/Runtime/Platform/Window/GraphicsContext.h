@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <Runtime/Core/Object.h>
+#include <Runtime/Core/Common/Object.h>
 #include <webgpu/webgpu.h>
 #include <GLFW/glfw3.h>
 

@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <Runtime/Core/Object.h>
 #include <Runtime/Core/Math/Math.hpp>
+#include <Runtime/Core/Common/Object.h>
 #include <Runtime/Platform/Window/GraphicsContext.h>
 #include <GLFW/glfw3.h>
 #include <webgpu/webgpu.h>
@@ -14,32 +14,33 @@
 
 namespace fairy::runtime::platform {
 
-struct CreateWindowConfig {
+struct InitWindowConfig {
   bool resizable = false;
   std::string_view title;
   core::math::ivec2 size{};
 
-  CreateWindowConfig()
-		  :resizable(false), title("Fairy"), size{1280, 720} { }
+  InitWindowConfig()
+          :resizable(false), title("Fairy"), size{1280, 720} { }
 };
 
 class Window : public core::Object {
 public:
-	explicit Window(const CreateWindowConfig& config);
-	~Window() override;
+    Window() = default;
+    ~Window() override;
 
-	virtual bool open();
-	virtual bool init_webgpu();
+    virtual bool open();
+    virtual bool init_webgpu();
+    virtual void init(const InitWindowConfig& config);
 
-	[[nodiscard]] bool should_close() const;
-	static void poll_events();
-	void get_framebuffer_size();
+    static void poll_events();
+    void get_framebuffer_size();
+    [[nodiscard]] bool should_close() const;
 
 public:
-	std::string title;
-	GLFWwindow* window;
-	core::math::ivec2 size{};
-	std::shared_ptr<GraphicsContext> graphics_context;
+    std::string title;
+    core::math::ivec2 size{};
+    GLFWwindow* window = nullptr;
+    std::shared_ptr<GraphicsContext> graphics_context = nullptr;
 };
 
 }
