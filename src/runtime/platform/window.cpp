@@ -7,63 +7,63 @@
 
 namespace fairy::runtime::platform {
 
-static void print_glfw_error(int error, const char *description) {
+static void PrintGlfwError(int error, const char *description) {
 	printf("GLFW Error %d: %s\n", error, description);
 }
 
 void Window::Init(const InitWindowConfig &config) {
-	size_ = config.size;
-	title_ = config.title;
+	size_ = config.size_;
+	title_ = config.title_;
 }
 
 bool Window::InitWebgpu() {
-	graphics_context_ = std::make_shared<graphics_context_>();
-	return graphics_context_->Init(Window);
+	graphics_context_ = std::make_shared<GraphicsContext>();
+	return graphics_context_->Init(window_);
 }
 
 bool Window::Open() {
-	glfwSetErrorCallback(print_glfw_error);
+	glfwSetErrorCallback(PrintGlfwError);
 
 	if (!glfwInit()) {
 		return false;
 	}
 
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-	Window = glfwCreateWindow(size_.x, size_.y, title_.data(), nullptr, nullptr);
+	window_ = glfwCreateWindow(size_.x, size_.y, title_.data(), nullptr, nullptr);
 
-	if (!Window) {
+	if (!window_) {
 		glfwTerminate();
 		return false;
 	}
 
 	if (!InitWebgpu()) {
 		graphics_context_.reset();
-		glfwDestroyWindow(Window);
-		Window = nullptr;
+		glfwDestroyWindow(window_);
+		window_ = nullptr;
 		glfwTerminate();
 		return false;
 	}
 
-	glfwShowWindow(Window);
+	glfwShowWindow(window_);
 	return true;
 }
 
 Window::~Window() {
 	graphics_context_.reset();
 
-	if (Window) {
-		glfwDestroyWindow(Window);
-		Window = nullptr;
+	if (window_) {
+		glfwDestroyWindow(window_);
+		window_ = nullptr;
 		glfwTerminate();
 	}
 }
 
 bool Window::ShouldClose() const {
-	if (!Window) {
+	if (!window_) {
 		return true;
 	}
 
-	return glfwWindowShouldClose(Window);
+	return glfwWindowShouldClose(window_);
 }
 
 void Window::PollEvents() {
@@ -71,7 +71,7 @@ void Window::PollEvents() {
 }
 
 void Window::GetFramebufferSize() {
-	glfwGetFramebufferSize(Window, &(this->size_.x), &(this->size_.y));
+	glfwGetFramebufferSize(window_, &(this->size_.x), &(this->size_.y));
 }
 
 }

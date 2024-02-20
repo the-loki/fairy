@@ -16,11 +16,11 @@
 namespace fairy::runtime::platform {
 
 struct InitWindowConfig {
-	bool resizable = false;
-	std::string_view title;
-	core::math::ivec2 size{};
+	bool resizable_ = false;
+	std::string_view title_;
+	core::math::ivec2 size_{};
 
-	InitWindowConfig() : resizable(false), title("Fairy"), size{1280, 720} {}
+	InitWindowConfig() : resizable_(false), title_("Fairy"), size_{1280, 720} {}
 };
 
 class Window : public core::Object {
@@ -40,7 +40,7 @@ public:
 	std::string title_;
 	core::math::ivec2 size_{};
 	GLFWwindow *window_ = nullptr;
-	std::shared_ptr<graphics_context> graphics_context_ = nullptr;
+	std::shared_ptr<GraphicsContext> graphics_context_ = nullptr;
 };
 
 }

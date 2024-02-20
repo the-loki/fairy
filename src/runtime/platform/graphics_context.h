@@ -11,20 +11,20 @@
 
 namespace fairy::runtime::platform {
 
-class graphics_context : public core::Object {
+class GraphicsContext : public core::Object {
 public:
-	graphics_context() = default;
-	~graphics_context() override;
+	GraphicsContext() = default;
+	~GraphicsContext() override;
 
-	virtual bool init(GLFWwindow *window);
+	virtual bool Init(GLFWwindow *window);
 
 public:
-	WGPUDevice device = nullptr;
-	WGPUSurface surface = nullptr;
-	WGPUAdapter adapter = nullptr;
-	WGPUInstance instance = nullptr;
-	WGPUSwapChain swap_chain = nullptr;
-	WGPUTextureFormat texture_format = WGPUTextureFormat::WGPUTextureFormat_Undefined;
+	WGPUDevice device_ = nullptr;
+	WGPUSurface surface_ = nullptr;
+	WGPUAdapter adapter_ = nullptr;
+	WGPUInstance instance_ = nullptr;
+	WGPUSwapChain swap_chain_ = nullptr;
+	WGPUTextureFormat texture_format_ = WGPUTextureFormat::WGPUTextureFormat_Undefined;
 };
 
 }

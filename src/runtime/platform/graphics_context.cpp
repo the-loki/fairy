@@ -34,19 +34,19 @@ static void print_wgpu_error(WGPUErrorType error_type, const char *message, void
 	printf("%s error: %s\n", error_type_lb, message);
 }
 
-bool graphics_context::init(GLFWwindow *window) {
+bool GraphicsContext::Init(GLFWwindow *window) {
 	using namespace webgpu_extra;
 
 #ifndef __EMSCRIPTEN__
 	WGPUInstanceDescriptor instance_desc = {};
 	instance_desc.nextInChain = nullptr;
-	instance = wgpuCreateInstance(&instance_desc);
-	surface = glfwGetWGPUSurface(instance, window);
+	instance_ = wgpuCreateInstance(&instance_desc);
+	surface_ = glfwGetWGPUSurface(instance_, window);
 
 	WGPURequestAdapterOptions adapter_opts = {};
 	adapter_opts.nextInChain = nullptr;
-	adapter_opts.compatibleSurface = surface;
-	adapter = request_adapter(instance, &adapter_opts);
+	adapter_opts.compatibleSurface = surface_;
+	adapter_ = request_adapter(instance_, &adapter_opts);
 
 	WGPUDeviceDescriptor device_desc = {};
 	device_desc.nextInChain = nullptr;
@@ -55,16 +55,16 @@ bool graphics_context::init(GLFWwindow *window) {
 	device_desc.requiredLimits = nullptr;
 	device_desc.defaultQueue.nextInChain = nullptr;
 	device_desc.defaultQueue.label = "WebGPU Default Queue";
-	device = request_device(adapter, &device_desc);
+	device_ = request_device(adapter_, &device_desc);
 #else
 	this->device = emscripten_webgpu_get_device();
 #endif
 
-	if (!device) {
+	if (!device_) {
 		return false;
 	}
 
-	wgpuDeviceSetUncapturedErrorCallback(device, &print_wgpu_error, nullptr);
+	wgpuDeviceSetUncapturedErrorCallback(device_, &print_wgpu_error, nullptr);
 
 #ifdef __EMSCRIPTEN__
 	WGPUSurfaceDescriptorFromCanvasHTMLSelector selector = {};
@@ -82,21 +82,21 @@ bool graphics_context::init(GLFWwindow *window) {
 	return true;
 }
 
-graphics_context::~graphics_context() {
-	if (swap_chain) {
-		wgpuSwapChainRelease(swap_chain);
+GraphicsContext::~GraphicsContext() {
+	if (swap_chain_) {
+		wgpuSwapChainRelease(swap_chain_);
 	}
 
-	if (device) {
-		wgpuDeviceRelease(device);
+	if (device_) {
+		wgpuDeviceRelease(device_);
 	}
 
-	if (adapter) {
-		wgpuAdapterRelease(adapter);
+	if (adapter_) {
+		wgpuAdapterRelease(adapter_);
 	}
 
-	if (instance) {
-		wgpuInstanceRelease(instance);
+	if (instance_) {
+		wgpuInstanceRelease(instance_);
 	}
 }
 
