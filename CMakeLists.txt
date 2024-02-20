@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 3.22)
-project(Fairy)
+project(fairy)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/Thirdparty/CMake/Modules")
 
-include_directories(Source)
+include_directories(src)
 
-add_subdirectory(ThirdParty)
-add_subdirectory(Source/Runtime)
-add_subdirectory(Source/Tools)
+add_subdirectory(thirdparty)
+add_subdirectory(src/runtime)
+add_subdirectory(src/tools)
