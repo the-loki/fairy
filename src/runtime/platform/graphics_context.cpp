@@ -46,6 +46,15 @@ bool GraphicsContext::Init(GLFWwindow *window) {
 	WGPURequestAdapterOptions adapter_opts = {};
 	adapter_opts.nextInChain = nullptr;
 	adapter_opts.compatibleSurface = surface_;
+
+#ifdef _WIN32
+	adapter_opts.backendType = WGPUBackendType_D3D12;
+#elif __APPLE__
+	adapter_opts.backendType = WGPUBackendType_Metal;
+#elif __linux__
+	adapter_opts.backendType = WGPUBackendType_Vulkan;
+#endif
+
 	adapter_ = request_adapter(instance_, &adapter_opts);
 
 	WGPUDeviceDescriptor device_desc = {};
