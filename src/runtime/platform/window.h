@@ -4,13 +4,13 @@
 
 #pragma once
 
-#include <runtime/core/math/math.h>
 #include <runtime/core/common/object.h>
 #include <runtime/platform/graphics_context.h>
 
 #include <GLFW/glfw3.h>
 #include <webgpu/webgpu.h>
 #include <string_view>
+#include <glm/glm.hpp>
 #include <memory>
 
 namespace fairy::runtime::platform {
@@ -18,7 +18,7 @@ namespace fairy::runtime::platform {
 struct InitWindowConfig {
 	bool resizable_ = false;
 	std::string_view title_;
-	core::math::ivec2 size_{};
+	glm::ivec2 size_{};
 
 	InitWindowConfig() : resizable_(false), title_("Fairy"), size_{1280, 720} {}
 };
@@ -38,7 +38,7 @@ public:
 
 public:
 	std::string title_;
-	core::math::ivec2 size_{};
+	glm::ivec2 size_{};
 	GLFWwindow *window_ = nullptr;
 	std::shared_ptr<GraphicsContext> graphics_context_ = nullptr;
 };

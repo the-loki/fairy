@@ -10,7 +10,7 @@ target_link_directories(webgpu INTERFACE ${WGPU_LIB_DIR})
 target_include_directories(webgpu INTERFACE ${WGPU_DIR})
 target_link_libraries(webgpu INTERFACE ${WGPU_LIB_NAME})
 
-if(WIN32)
+if (WIN32)
     target_link_libraries(webgpu INTERFACE ws2_32 Userenv ntdll d3dcompiler bcrypt)
 endif ()
 
@@ -51,3 +51,11 @@ target_link_libraries(imgui PUBLIC glfw webgpu)
 #glm
 set(GLM_DIR ${CMAKE_SOURCE_DIR}/thirdparty/glm-1.0.0)
 add_subdirectory(${GLM_DIR})
+
+
+#taskflow
+set(TASK_FLOW_DIR ${CMAKE_SOURCE_DIR}/thirdparty/taskflow-3.6.0)
+set(TF_BUILD_TESTS OFF)
+set(TF_BUILD_EXAMPLES OFF)
+set(CMAKE_VERBOSE_MAKEFILE OFF)
+add_subdirectory(${TASK_FLOW_DIR})

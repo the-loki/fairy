@@ -30,3 +30,10 @@
 - Version: v0.17.2.1 (44d18911dc598104a9d611f8b6128e2620a5f145, 2023)
 - License: MIT
 
+
+## taskflow
+
+- Upstream: https://github.com/taskflow/taskflow
+- Version: v3.6.0 (12f8bd4e970ab27fd3dee3bffa24b5b48b54ba39, 2023)
+- License: MIT
+
