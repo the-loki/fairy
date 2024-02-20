@@ -2,7 +2,8 @@
 // Created by 57470 on 2024/2/18.
 //
 
-#include <runtime/platform/Window.h>
+
+#include "window.h"
 #include <webgpu_extra.h>
 
 namespace fairy::runtime::platform {
@@ -16,7 +17,7 @@ void Window::Init(const InitWindowConfig &config) {
 	title_ = config.title_;
 }
 
-bool Window::InitWebgpu() {
+bool Window::InitGraphicsContext() {
 	graphics_context_ = std::make_shared<GraphicsContext>();
 	return graphics_context_->Init(window_);
 }
@@ -36,7 +37,7 @@ bool Window::Open() {
 		return false;
 	}
 
-	if (!InitWebgpu()) {
+	if (!InitGraphicsContext()) {
 		graphics_context_.reset();
 		glfwDestroyWindow(window_);
 		window_ = nullptr;

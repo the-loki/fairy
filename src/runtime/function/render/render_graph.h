@@ -4,9 +4,12 @@
 
 #pragma once
 
+#include "runtime/core/common/object.h"
+
+
 namespace fairy::runtime::function::render {
 
-class RenderGraph {
+class RenderGraph : public core::Object{
 
 };
 

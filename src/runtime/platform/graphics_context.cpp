@@ -2,7 +2,8 @@
 // Created by loki on 2024/2/19.
 //
 
-#include <runtime/platform/Window.h>
+
+#include "graphics_context.h"
 #include <glfw3webgpu.h>
 #include <webgpu_extra.h>
 
@@ -16,7 +17,7 @@
 
 namespace fairy::runtime::platform {
 
-static void print_wgpu_error(WGPUErrorType error_type, const char *message, void *) {
+static void PrintWgpuError(WGPUErrorType error_type, const char *message, void *) {
 	const char *error_type_lb;
 
 	switch (error_type) {
@@ -73,7 +74,7 @@ bool GraphicsContext::Init(GLFWwindow *window) {
 		return false;
 	}
 
-	wgpuDeviceSetUncapturedErrorCallback(device_, &print_wgpu_error, nullptr);
+	wgpuDeviceSetUncapturedErrorCallback(device_, &PrintWgpuError, nullptr);
 
 #ifdef __EMSCRIPTEN__
 	WGPUSurfaceDescriptorFromCanvasHTMLSelector selector = {};

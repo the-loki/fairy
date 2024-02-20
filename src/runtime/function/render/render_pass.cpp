@@ -3,3 +3,6 @@
 //
 
 #include "render_pass.h"
+
+
+namespace fairy::runtime::function::render {}

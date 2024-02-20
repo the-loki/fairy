@@ -4,9 +4,8 @@
 
 #pragma once
 
-#include <runtime/core/common/object.h>
-#include <runtime/platform/graphics_context.h>
-
+#include "runtime/core/common/object.h"
+#include "graphics_context.h"
 #include <GLFW/glfw3.h>
 #include <webgpu/webgpu.h>
 #include <string_view>
@@ -29,7 +28,7 @@ public:
 	~Window() override;
 
 	virtual bool Open();
-	virtual bool InitWebgpu();
+	virtual bool InitGraphicsContext();
 	virtual void Init(const InitWindowConfig &config);
 
 	static void PollEvents();
