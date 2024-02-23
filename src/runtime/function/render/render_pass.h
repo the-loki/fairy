@@ -9,6 +9,9 @@
 namespace fairy::runtime::function::render {
 
 class RenderPass : public RenderGraphNode {
-}
+public:
+	RenderPass() = default;
+	~RenderPass() = default;
+};
 
 }

@@ -7,6 +7,7 @@
 namespace fairy::runtime::function::render {
 
 class RenderGraphNode {
+	
 };
 
 }

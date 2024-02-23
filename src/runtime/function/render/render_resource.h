@@ -9,8 +9,10 @@
 
 namespace fairy::runtime::function::render {
 
-class RenderResource : public RenderGraphNode{
-
+class RenderResource : public RenderGraphNode {
+public:
+	RenderResource() = default;
+	~RenderResource() = default;
 };
 
 }
