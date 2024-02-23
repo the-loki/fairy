@@ -29,11 +29,10 @@ public:
 	void DeclareOutputResourceSource(const std::shared_ptr<RenderPass> &pass);
 
 	void Execute();
-
 public:
+	std::vector<size_t> execution_flow_;
 	std::vector<std::shared_ptr<RenderPass>> passes_;
 	std::vector<std::shared_ptr<RenderResource>> resources_;
-	std::vector<std::shared_ptr<RenderPass>> execution_flow_;
 };
 
 template<typename T>

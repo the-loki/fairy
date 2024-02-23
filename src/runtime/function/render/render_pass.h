@@ -5,10 +5,11 @@
 #pragma once
 
 #include "render_graph_node.h"
-#include "render_graph.h"
 #include <memory>
 
 namespace fairy::runtime::function::render {
+
+class RenderGraph;
 
 class RenderPass : public RenderGraphNode {
 public:

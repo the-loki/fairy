@@ -24,6 +24,7 @@ public:
 	WGPUAdapter adapter_ = nullptr;
 	WGPUInstance instance_ = nullptr;
 	WGPUSwapChain swap_chain_ = nullptr;
+	WGPUSupportedLimits supported_limits_{};
 	WGPUTextureFormat texture_format_ = WGPUTextureFormat::WGPUTextureFormat_Undefined;
 };
 

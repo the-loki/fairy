@@ -13,7 +13,7 @@ void RenderGraph::Setup(const std::shared_ptr<RenderPass> &pass) {
 
 void RenderGraph::Execute() {
 	for (const auto &kPass : execution_flow_) {
-		kPass->Execute();
+
 	}
 }
 

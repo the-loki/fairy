@@ -89,6 +89,9 @@ bool GraphicsContext::Init(GLFWwindow *window) {
 	this->texture_format = wgpuSurfaceGetPreferredFormat(this->surface, nullptr);
 #endif
 
+	supported_limits_.nextInChain = nullptr;
+	wgpuDeviceGetLimits(this->device_, &supported_limits_);
+
 	return true;
 }
 

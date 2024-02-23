@@ -12,7 +12,7 @@ namespace fairy::runtime::function::render {
 
 class RenderResource : public RenderGraphNode {
 public:
-	explicit RenderResource(const std::string_view& name);
+	explicit RenderResource(const std::string_view &name);
 	~RenderResource() = default;
 };
 
