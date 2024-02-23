@@ -7,7 +7,7 @@ platforms and graphics APIs.** They all use standard backends from the [backends
 
 The purpose of Examples is to showcase integration with backends, let you try Dear ImGui, and guide you toward
 integrating Dear ImGui in your own application/game/engine.
-**Once Dear ImGui is setup and running, run and refer to `ImGui::ShowDemoWindow()` in imgui_demo.cpp for usage of the end-user API.**
+**Once Dear ImGui is Setup and running, run and refer to `ImGui::ShowDemoWindow()` in imgui_demo.cpp for usage of the end-user API.**
 
 You can find Windows binaries for some of those example applications at:
   https://www.dearimgui.com/binaries
@@ -38,7 +38,7 @@ At shutdown:
 Example (using [backends/imgui_impl_win32.cpp](https://github.com/ocornut/imgui/blob/master/backends/imgui_impl_win32.cpp) + [backends/imgui_impl_dx11.cpp](https://github.com/ocornut/imgui/blob/master/backends/imgui_impl_dx11.cpp)):
 
 ```cpp
-// Create a Dear ImGui context, setup some options
+// Create a Dear ImGui context, Setup some options
 ImGui::CreateContext();
 ImGuiIO& io = ImGui::GetIO();
 io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable some options
@@ -72,7 +72,7 @@ ImGui_ImplWin32_Shutdown();
 ImGui::DestroyContext();
 ```
 
-Please read 'PROGRAMMER GUIDE' in imgui.cpp for notes on how to setup Dear ImGui in your codebase.
+Please read 'PROGRAMMER GUIDE' in imgui.cpp for notes on how to Setup Dear ImGui in your codebase.
 Please read the comments and instruction at the top of each file.
 Please read FAQ at https://www.dearimgui.com/faq
 
@@ -215,7 +215,7 @@ third party software and build systems. For most examples here we choose to prov
  - Batch files for Visual Studio 2008+
  - A .sln project file for Visual Studio 2012+
  - Xcode project files for the Apple examples
-Please let us know if they don't work with your setup!
+Please let us know if they don't work with your Setup!
 You can probably just import the imgui_impl_xxx.cpp/.h files into your own codebase or compile those
 directly with a command-line compiler.
 
@@ -239,7 +239,7 @@ However, rendering a mouse cursor at 60 FPS will feel sluggish so you likely won
 all times. It might be beneficial for the user experience to switch to a software rendered cursor _only_
 when an interactive drag is in progress.
 
-Note that some setup or GPU drivers are likely to be causing extra display lag depending on their settings.
+Note that some Setup or GPU drivers are likely to be causing extra display lag depending on their settings.
 If you feel that dragging windows feels laggy and you are not sure what the cause is: try to build a simple
 drawing a flat 2D shape directly under the mouse cursor!
 

@@ -28,7 +28,7 @@ Dear ImGui is particularly suited to integration in game engines (for tooling), 
 
  - Minimize state synchronization.
  - Minimize UI-related state storage on user side.
- - Minimize setup and maintenance.
+ - Minimize Setup and maintenance.
  - Easy to use to create dynamic UI which are the reflection of a dynamic data set.
  - Easy to use to create code-driven and data-driven tools.
  - Easy to use to create ad hoc short-lived tools and long-lived, more elaborate tools.

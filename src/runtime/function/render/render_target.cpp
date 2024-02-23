@@ -3,3 +3,8 @@
 //
 
 #include "render_target.h"
+
+
+namespace fairy::runtime::function::render {
+
+}

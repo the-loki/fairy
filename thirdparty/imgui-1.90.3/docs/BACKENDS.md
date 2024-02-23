@@ -17,7 +17,7 @@ your application or engine to easily integrate Dear ImGui.** Each backend is typ
 An application usually combines one Platform backend + one Renderer backend + main Dear ImGui sources.
 For example, the [example_win32_directx11](https://github.com/ocornut/imgui/tree/master/examples/example_win32_directx11) application combines imgui_impl_win32.cpp + imgui_impl_dx11.cpp. There are 20+ examples in the [examples/](https://github.com/ocornut/imgui/blob/master/examples/) folder. See [EXAMPLES.MD](https://github.com/ocornut/imgui/blob/master/docs/EXAMPLES.md) for details.
 
-**Once Dear ImGui is setup and running, run and refer to `ImGui::ShowDemoWindow()` in imgui_demo.cpp for usage of the end-user API.**
+**Once Dear ImGui is Setup and running, run and refer to `ImGui::ShowDemoWindow()` in imgui_demo.cpp for usage of the end-user API.**
 
 
 ### What are backends?
@@ -129,7 +129,7 @@ Once it works, if you really need it, you can replace parts of backends with you
 and you have high-level systems everywhere.<BR>
 Suggestion: try using a non-portable backend first (e.g. win32 + underlying graphics API) to get
 your desktop builds working first. This will get you running faster and get your acquainted with
-how Dear ImGui works and is setup. You can then rewrite a custom backend using your own engine API...
+how Dear ImGui works and is Setup. You can then rewrite a custom backend using your own engine API...
 
 Generally:
 It is unlikely you will add value to your project by creating your own backend.

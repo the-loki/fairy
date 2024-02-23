@@ -1,4 +1,4 @@
-@REM Build for Visual Studio compiler. Run your copy of vcvars32.bat or vcvarsall.bat to setup command-line compiler.
+@REM Build for Visual Studio compiler. Run your copy of vcvars32.bat or vcvarsall.bat to Setup command-line compiler.
 @set OUT_DIR=Debug
 @set OUT_EXE=example_sdl3_opengl3
 @set INCLUDES=/I..\.. /I..\..\backends /I%SDL3_DIR%\include

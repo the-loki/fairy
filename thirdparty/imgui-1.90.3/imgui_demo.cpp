@@ -4826,7 +4826,7 @@ static void ShowDemoWindowTables()
     IMGUI_DEMO_MARKER("Tables/Columns widths");
     if (ImGui::TreeNode("Columns widths"))
     {
-        HelpMarker("Using TableSetupColumn() to setup default width.");
+        HelpMarker("Using TableSetupColumn() to Setup default width.");
 
         static ImGuiTableFlags flags1 = ImGuiTableFlags_Borders | ImGuiTableFlags_NoBordersInBodyUntilResize;
         PushStyleCompact();
@@ -4856,7 +4856,7 @@ static void ShowDemoWindowTables()
         }
 
         HelpMarker(
-            "Using TableSetupColumn() to setup explicit width.\n\nUnless _NoKeepColumnsVisible is set, "
+            "Using TableSetupColumn() to Setup explicit width.\n\nUnless _NoKeepColumnsVisible is set, "
             "fixed columns with set width may still be shrunk down if there's not enough space in the host.");
 
         static ImGuiTableFlags flags2 = ImGuiTableFlags_None;

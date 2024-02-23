@@ -52,7 +52,7 @@ if NOT "%1"=="" (
         if exist "%3" SHIFT
         GOTO continue
     )
-    REM no need to setup up stack size under Windows
+    REM no need to Setup up stack size under Windows
     if "%1"=="-u" GOTO continue
     set cmd_line=%cmd_line% %1
 :continue

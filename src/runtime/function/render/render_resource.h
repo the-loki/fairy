@@ -6,12 +6,13 @@
 #pragma once
 
 #include "render_graph_node.h"
+#include <webgpu/webgpu.h>
 
 namespace fairy::runtime::function::render {
 
 class RenderResource : public RenderGraphNode {
 public:
-	RenderResource() = default;
+	explicit RenderResource(const std::string_view& name);
 	~RenderResource() = default;
 };
 

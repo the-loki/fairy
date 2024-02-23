@@ -12,19 +12,40 @@
 
 namespace fairy::runtime::function::render {
 
-class RenderGraph : public core::Object {
+class RenderGraph : std::enable_shared_from_this<RenderGraph> {
 public:
 	RenderGraph() = default;
-	~RenderGraph() override = default;
+	~RenderGraph() = default;
 
 public:
-	void addPass(const std::shared_ptr<RenderPass> &pass);
-	void addResource(const std::shared_ptr<RenderResource> &resource);
+	void Setup(const std::shared_ptr<RenderPass> &pass);
+
+	template<typename T>
+	requires std::derived_from<T, RenderResource>
+	void DeclareInputResourceSource(const std::shared_ptr<RenderPass> &pass);
+
+	template<typename T>
+	requires std::derived_from<T, RenderResource>
+	void DeclareOutputResourceSource(const std::shared_ptr<RenderPass> &pass);
+
+	void Execute();
 
 public:
 	std::vector<std::shared_ptr<RenderPass>> passes_;
 	std::vector<std::shared_ptr<RenderResource>> resources_;
 	std::vector<std::shared_ptr<RenderPass>> execution_flow_;
 };
+
+template<typename T>
+requires std::derived_from<T, RenderResource>
+void RenderGraph::DeclareInputResourceSource(const std::shared_ptr<RenderPass> &pass) {
+
+}
+
+template<typename T>
+requires std::derived_from<T, RenderResource>
+void RenderGraph::DeclareOutputResourceSource(const std::shared_ptr<RenderPass> &pass) {
+
+}
 
 }

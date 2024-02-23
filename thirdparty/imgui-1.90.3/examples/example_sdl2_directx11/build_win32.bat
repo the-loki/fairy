@@ -1,4 +1,4 @@
-@REM Build for Visual Studio compiler. Run your copy of vcvars32.bat or vcvarsall.bat to setup command-line compiler.
+@REM Build for Visual Studio compiler. Run your copy of vcvars32.bat or vcvarsall.bat to Setup command-line compiler.
 @set OUT_DIR=Debug
 @set OUT_EXE=example_sdl2_directx11
 @set INCLUDES=/I..\.. /I..\..\backends /I%SDL2_DIR%\include /I "%WindowsSdkDir%Include\um" /I "%WindowsSdkDir%Include\shared" /I "%DXSDK_DIR%Include"

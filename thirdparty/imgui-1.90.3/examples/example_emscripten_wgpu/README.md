@@ -4,7 +4,7 @@
 
 - Depending on your configuration, in Windows you may need to run `emsdk/emsdk_env.bat` in your console to access the Emscripten command-line tools.
 
-- You may also refer to our [Continuous Integration setup](https://github.com/ocornut/imgui/tree/master/.github/workflows) for Emscripten setup.
+- You may also refer to our [Continuous Integration Setup](https://github.com/ocornut/imgui/tree/master/.github/workflows) for Emscripten Setup.
 
 - Then build using `make -f Makefile.emscripten` while in the `example_emscripten_wgpu/` directory.
 
