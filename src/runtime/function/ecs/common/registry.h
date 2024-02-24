@@ -4,9 +4,9 @@
 
 #pragma once
 
-namespace fairy::runtime::core::ecs {
+namespace fairy::runtime::function::ecs {
 
-class System {
+class Registry {
 
 };
 

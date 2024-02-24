@@ -4,6 +4,6 @@
 
 #include "system.h"
 
-namespace fairy::runtime::core::ecs {
+namespace fairy::runtime::function::ecs {
 
 }
