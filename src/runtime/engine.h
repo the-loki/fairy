@@ -6,7 +6,6 @@
 
 #include <memory>
 #include <runtime/platform/window.h>
-#include <runtime/core/ecs/registry.h>
 
 namespace fairy::runtime {
 
@@ -28,7 +27,6 @@ protected:
 
 public:
 	std::shared_ptr<platform::Window> window_ = nullptr;
-	std::shared_ptr<core::ecs::Registry> registry_ = nullptr;
 };
 
 }

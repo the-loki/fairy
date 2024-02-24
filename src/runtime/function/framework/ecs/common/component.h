@@ -7,9 +7,9 @@
 #include <runtime/core/common/object.h>
 #include <runtime/core/common/non_copyable.h>
 
-namespace fairy::runtime::function::ecs {
+namespace fairy::runtime::function::framework {
 
-struct Component : public core::Object, core::NonCopyable {
+struct Component : public core::Object {
 
 };
 

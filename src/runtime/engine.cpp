@@ -15,8 +15,6 @@ bool Engine::Init(const InitEngineConfig &config) {
 		return false;
 	}
 
-	registry_ = std::make_shared<core::ecs::Registry>();
-
 	return true;
 }
 

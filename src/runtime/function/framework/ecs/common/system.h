@@ -7,9 +7,9 @@
 #include <runtime/core/common/object.h>
 #include <runtime/core/common/non_copyable.h>
 
-namespace fairy::runtime::function::ecs {
+namespace fairy::runtime::function::framework {
 
-class System : public core::Object, core::NonCopyable {
+class System : public core::Object {
 	virtual void Tick(float delta_time) = 0;
 	virtual void PhysTick(float delta_time) = 0;
 };

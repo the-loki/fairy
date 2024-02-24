@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include <runtime/function/ecs/common/component.h>
+#include <runtime/function/framework/ecs/common/component.h>
 
-namespace fairy::runtime::function::ecs {
+namespace fairy::runtime::function::framework {
 
 struct StaticMeshComponent : public Component {
 
