@@ -4,10 +4,11 @@
 
 #pragma once
 
-#include <runtime/core/common/non_copyable.h>
+#include <runtime/core/common/type_traits.h>
+
 namespace fairy::runtime::function::framework {
 
-class World : public core::NonCopyable {
+class World : public core::NonCopyableAndMovable {
 
 };
 

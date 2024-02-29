@@ -12,7 +12,7 @@ class RenderGraphNode {
 public:
 	explicit RenderGraphNode(const std::string_view& name);
 public:
-	std::string_view name_;
+	std::string name_;
 };
 
 }

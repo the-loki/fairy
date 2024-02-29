@@ -1,13 +1,11 @@
 //
-// Created by loki on 2024/2/24.
+// Created by loki on 2024/2/25.
 //
 
 #pragma once
 
 namespace fairy::runtime::function::framework {
 
-class SceneRenderSystem {
-
-};
+using SceneObjectID = size_t;
 
 }
