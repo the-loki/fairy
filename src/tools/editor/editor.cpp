@@ -6,7 +6,7 @@ int main() {
 	auto config = fairy::runtime::InitEngineConfig();
 
 	if (engine.Init(config)) {
-		engine.StartMainLoop();
+		engine.Start();
 	}
 
 	return 0;

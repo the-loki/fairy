@@ -3,6 +3,15 @@
 //
 
 #include <runtime/engine.h>
+#include <iostream>
+
+struct Position {
+	float x, y;
+};
+
+struct Velocity {
+	float x, y;
+};
 
 namespace fairy::runtime {
 
@@ -15,24 +24,24 @@ bool Engine::Init(const InitEngineConfig &config) {
 		return false;
 	}
 
+	world_ = std::make_shared<flecs::world>();
+
 	return true;
 }
 
-void Engine::StartMainLoop() {
-#ifndef __EMSCRIPTEN__
-	while (!ShouldFinish()) {
-		MainLoopStep();
+void Engine::Start() {
+	while (!ShouldFinish() && world_->progress()) {
+		WindowLoop();
 	}
-#else
-	emscripten_set_main_loop_arg(main_loop_step, window, 0, false);
-#endif
+
+	world_->quit();
 }
 
 bool Engine::ShouldFinish() const {
 	return window_->ShouldClose();
 }
 
-void Engine::MainLoopStep() const {
+void Engine::WindowLoop() const {
 	window_->PollEvents();
 	window_->GetFramebufferSize();
 	const auto frame_buffer_size = window_->size_;

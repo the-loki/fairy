@@ -6,6 +6,7 @@
 
 #include <memory>
 #include <runtime/platform/window.h>
+#include <flecs.h>
 
 namespace fairy::runtime {
 
@@ -18,14 +19,15 @@ public:
 	Engine() = default;
 	~Engine() override = default;
 
-	virtual void StartMainLoop();
+	virtual void Start();
 	virtual bool Init(const InitEngineConfig &config);
 
 protected:
 	[[nodiscard]] bool ShouldFinish() const;
-	void MainLoopStep() const;
+	void WindowLoop() const;
 
 public:
+	std::shared_ptr<flecs::world> world_ = nullptr;
 	std::shared_ptr<platform::Window> window_ = nullptr;
 };
 

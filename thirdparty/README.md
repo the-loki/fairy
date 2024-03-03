@@ -37,3 +37,10 @@
 - Version: v3.6.0 (12f8bd4e970ab27fd3dee3bffa24b5b48b54ba39, 2023)
 - License: MIT
 
+
+## flecs
+
+- Upstream: https://github.com/SanderMertens/flecs
+- Version: v3.2.11 (198607d10ab8f8fc44540043271d6e3be019250b, 2024)
+- License: MIT
+

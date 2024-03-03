@@ -59,3 +59,8 @@ set(TF_BUILD_TESTS OFF)
 set(TF_BUILD_EXAMPLES OFF)
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 add_subdirectory(${TASK_FLOW_DIR})
+
+#flecs
+set(FLECS_DIR ${CMAKE_SOURCE_DIR}/thirdparty/flecs-3.2.11)
+set(FLECS_SHARED OFF)
+add_subdirectory(${FLECS_DIR})
