@@ -6,7 +6,6 @@
 
 #include "render_pass.h"
 #include "render_resource.h"
-#include "runtime/core/common/object.h"
 #include <memory>
 #include <vector>
 

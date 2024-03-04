@@ -14,10 +14,10 @@ struct InitEngineConfig {
 	platform::InitWindowConfig window_config_;
 };
 
-class Engine : public core::Object {
+class Engine : public core::NonCopyableAndMovable {
 public:
 	Engine() = default;
-	~Engine() override = default;
+	~Engine() = default;
 
 	virtual void Start();
 	virtual bool Init(const InitEngineConfig &config);

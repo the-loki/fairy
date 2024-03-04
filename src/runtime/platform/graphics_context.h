@@ -5,16 +5,16 @@
 
 #pragma once
 
-#include <runtime/core/common/object.h>
+#include <runtime/core/common/type_traits.h>
 #include <webgpu/webgpu.h>
 #include <GLFW/glfw3.h>
 
 namespace fairy::runtime::platform {
 
-class GraphicsContext : public core::Object {
+class GraphicsContext final : public core::NonCopyableAndMovable {
 public:
 	GraphicsContext() = default;
-	~GraphicsContext() override;
+	~GraphicsContext();
 
 	virtual bool Init(GLFWwindow *window);
 

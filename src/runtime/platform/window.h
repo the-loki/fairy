@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "runtime/core/common/object.h"
+#include <runtime/core/common/type_traits.h>
 #include "graphics_context.h"
 #include <GLFW/glfw3.h>
 #include <webgpu/webgpu.h>
@@ -22,10 +22,10 @@ struct InitWindowConfig {
 	InitWindowConfig() : resizable_(false), title_("Fairy"), size_{1280, 720} {}
 };
 
-class Window : public core::Object {
+class Window final : public core::NonCopyableAndMovable {
 public:
 	Window() = default;
-	~Window() override;
+	~Window();
 
 	virtual bool Open();
 	virtual bool InitGraphicsContext();
