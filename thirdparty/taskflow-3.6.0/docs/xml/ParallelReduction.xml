@@ -62,7 +62,7 @@
 <codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;</ref><sp/>vec;</highlight></codeline>
 <codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;::iterator</ref><sp/>first,<sp/>last;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Init<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Initialize<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>vec<sp/><sp/><sp/>=<sp/>{1,<sp/>2,<sp/>3,<sp/>4,<sp/>5,<sp/>6,<sp/>7,<sp/>8,<sp/>9,<sp/>10};</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>first<sp/>=<sp/>vec.begin();</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>last<sp/><sp/>=<sp/>vec.end();</highlight></codeline>
@@ -77,13 +77,13 @@
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>return<sp/>l<sp/>+<sp/>r;<sp/><sp/><sp/><sp/>//<sp/>binary<sp/>reducer<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>});</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal">Init.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(task);</highlight></codeline>
+<codeline><highlight class="normal">Initialize.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(task);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">executor.run(taskflow).wait();</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">assert(sum<sp/>==<sp/>100<sp/>+<sp/>55);</highlight></codeline>
 </programlisting></para>
-<para>In the above example, when <computeroutput>Init</computeroutput> finishes, <computeroutput>vec</computeroutput> has been initialized to 10 elements with <computeroutput>first</computeroutput> and <computeroutput>last</computeroutput> pointing to the data range of <computeroutput>vec</computeroutput>. The reduction task will then work on this initialized range as a result of passing iterators by reference.</para>
+<para>In the above example, when <computeroutput>Initialize</computeroutput> finishes, <computeroutput>vec</computeroutput> has been initialized to 10 elements with <computeroutput>first</computeroutput> and <computeroutput>last</computeroutput> pointing to the data range of <computeroutput>vec</computeroutput>. The reduction task will then work on this initialized range as a result of passing iterators by reference.</para>
 </sect1>
 <sect1 id="ParallelReduction_1A2ParallelTransformationReduction">
 <title>Create a Parallel-Transform-Reduction Task</title>

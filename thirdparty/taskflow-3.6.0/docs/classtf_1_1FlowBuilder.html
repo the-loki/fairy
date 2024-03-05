@@ -175,7 +175,7 @@
               <div class="m-doc-template">template&lt;typename B, typename E, typename T, typename O, typename P = <a href="classtf_1_1GuidedPartitioner.html" class="m-doc">GuidedPartitioner</a>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#a97f345ee90bdeb8c0c95120752e32dcb" class="m-doc">reduce</a>(</span><span class="m-doc-wrap">B first,
               E last,
-              T&amp; Init,
+              T&amp; Initialize,
               O bop,
               P&amp;&amp; part = P()) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
             </dt>
@@ -184,7 +184,7 @@
               <div class="m-doc-template">template&lt;typename B, typename E, typename T, typename BOP, typename UOP, typename P = <a href="classtf_1_1GuidedPartitioner.html" class="m-doc">GuidedPartitioner</a>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#a3451d6d69aceb775450e41ebe169e4b7" class="m-doc">transform_reduce</a>(</span><span class="m-doc-wrap">B first,
               E last,
-              T&amp; Init,
+              T&amp; Initialize,
               BOP bop,
               UOP uop,
               P&amp;&amp; part = P()) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
@@ -204,7 +204,7 @@
               E last,
               D d_first,
               BOP bop,
-              T Init) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
+              T Initialize) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
             </dt>
             <dd>creates an STL-styled parallel inclusive-scan task with an initial value</dd>
             <dt>
@@ -212,7 +212,7 @@
               <span class="m-doc-wrap-bumper">auto <a href="#a4e0d618d8eb0b3b2e5e00443a10bf512" class="m-doc">exclusive_scan</a>(</span><span class="m-doc-wrap">B first,
               E last,
               D d_first,
-              T Init,
+              T Initialize,
               BOP bop) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
             </dt>
             <dd>creates an STL-styled parallel exclusive-scan task</dd>
@@ -232,7 +232,7 @@
               D d_first,
               BOP bop,
               UOP uop,
-              T Init) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
+              T Initialize) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
             </dt>
             <dd>creates an STL-styled parallel transform-inclusive scan task</dd>
             <dt>
@@ -240,7 +240,7 @@
               <span class="m-doc-wrap-bumper">auto <a href="#a8549478ef819699b30f8daf88f04d577" class="m-doc">transform_exclusive_scan</a>(</span><span class="m-doc-wrap">B first,
               E last,
               D d_first,
-              T Init,
+              T Initialize,
               BOP bop,
               UOP uop) -&gt; <a href="classtf_1_1Task.html" class="m-doc">Task</a></span>
             </dt>
@@ -418,7 +418,7 @@
             </table>
 <p>The following example creates an if-else block using one condition task and three static tasks.</p><pre class="m-code"><span class="n">tf</span><span class="o">::</span><span class="n">Taskflow</span><span class="w"> </span><span class="n">taskflow</span><span class="p">;</span>
 
-<span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">Init</span><span class="p">,</span><span class="w"> </span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span>
+<span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">Initialize</span><span class="p">,</span><span class="w"> </span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span>
 <span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span>
 <span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">},</span>
 <span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;yes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">},</span>
@@ -427,7 +427,7 @@
 
 <span class="c1">// executes yes if cond returns 0, or no if cond returns 1</span>
 <span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">);</span>
-<span class="n">cond</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">Init</span><span class="p">);</span></pre><p>Please refer to <a href="ConditionalTasking.html" class="m-doc">Conditional Tasking</a> for details.</p>
+<span class="n">cond</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">Initialize</span><span class="p">);</span></pre><p>Please refer to <a href="ConditionalTasking.html" class="m-doc">Conditional Tasking</a> for details.</p>
           </div></section>
           <section class="m-doc-details" id="a60d7a666cab71ecfa3010b2efb0d6b57"><div>
             <h3>
@@ -465,7 +465,7 @@
             </table>
 <p>The following example creates a multi-condition task that selectively jumps to two successor tasks.</p><pre class="m-code"><span class="n">tf</span><span class="o">::</span><span class="n">Taskflow</span><span class="w"> </span><span class="n">taskflow</span><span class="p">;</span>
 
-<span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">Init</span><span class="p">,</span><span class="w"> </span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">branch1</span><span class="p">,</span><span class="w"> </span><span class="n">branch2</span><span class="p">,</span><span class="w"> </span><span class="n">branch3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span>
+<span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">Initialize</span><span class="p">,</span><span class="w"> </span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">branch1</span><span class="p">,</span><span class="w"> </span><span class="n">branch2</span><span class="p">,</span><span class="w"> </span><span class="n">branch3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span>
 <span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span>
 <span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">tf</span><span class="o">::</span><span class="n">SmallVector</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"> </span><span class="p">},</span>
 <span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;branch1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">},</span>
@@ -475,7 +475,7 @@
 
 <span class="c1">// executes branch1 and branch3 when cond returns 0 and 2</span>
 <span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">branch1</span><span class="p">,</span><span class="w"> </span><span class="n">branch2</span><span class="p">,</span><span class="w"> </span><span class="n">branch3</span><span class="p">);</span>
-<span class="n">cond</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">Init</span><span class="p">);</span></pre><p>Please refer to <a href="ConditionalTasking.html" class="m-doc">Conditional Tasking</a> for details.</p>
+<span class="n">cond</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">Initialize</span><span class="p">);</span></pre><p>Please refer to <a href="ConditionalTasking.html" class="m-doc">Conditional Tasking</a> for details.</p>
           </div></section>
           <section class="m-doc-details" id="a1f6118326ad434f6c839007a1a79fe1b"><div>
             <h3>
@@ -582,8 +582,8 @@
 
 <span class="c1">// t2 is partially composed of t1</span>
 <span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">composed_of</span><span class="p">(</span><span class="n">t1</span><span class="p">);</span>
-<span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">Init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">emplace</span><span class="p">([](){</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;t2&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
-<span class="n">Init</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">comp</span><span class="p">);</span></pre><p>The taskflow object <code>t2</code> is composed of another taskflow object <code>t1</code>, preceded by another static task <code>Init</code>. When taskflow <code>t2</code> is submitted to an executor, <code>Init</code> will run first and then <code>comp</code> which spwans its definition in taskflow <code>t1</code>.</p><p>The target <code>object</code> being composed must define the method <code>T::graph()</code> that returns a reference to a graph object of type <a href="classtf_1_1Graph.html" class="m-doc">tf::<wbr />Graph</a> such that it can interact with the executor. For example:</p><pre class="m-code"><span class="c1">// custom struct</span>
+<span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">Initialize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">emplace</span><span class="p">([](){</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;t2&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="n">Initialize</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">comp</span><span class="p">);</span></pre><p>The taskflow object <code>t2</code> is composed of another taskflow object <code>t1</code>, preceded by another static task <code>Initialize</code>. When taskflow <code>t2</code> is submitted to an executor, <code>Initialize</code> will run first and then <code>comp</code> which spwans its definition in taskflow <code>t1</code>.</p><p>The target <code>object</code> being composed must define the method <code>T::graph()</code> that returns a reference to a graph object of type <a href="classtf_1_1Graph.html" class="m-doc">tf::<wbr />Graph</a> such that it can interact with the executor. For example:</p><pre class="m-code"><span class="c1">// custom struct</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">MyObj</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">tf</span><span class="o">::</span><span class="n">Graph</span><span class="w"> </span><span class="n">graph</span><span class="p">;</span>
 <span class="w">  </span><span class="n">MyObj</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -977,7 +977,7 @@
               </div>
               <span class="m-doc-wrap-bumper"><a href="classtf_1_1Task.html" class="m-doc">Task</a> tf::<wbr />FlowBuilder::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a97f345ee90bdeb8c0c95120752e32dcb" class="m-doc-self">reduce</a>(</span><span class="m-doc-wrap">B first,
               E last,
-              T&amp; Init,
+              T&amp; Initialize,
               O bop,
               P&amp;&amp; part = P())</span></span>
             </h3>
@@ -1021,7 +1021,7 @@
                   <td>iterator to the end (exclusive)</td>
                 </tr>
                 <tr>
-                  <td>Init</td>
+                  <td>Initialize</td>
                   <td>initial value of the reduction and the storage for the reduced result</td>
                 </tr>
                 <tr>
@@ -1040,8 +1040,8 @@
                 </tr>
               </tfoot>
             </table>
-<p>The task spawns asynchronous tasks to perform parallel reduction over <code>Init</code> and the elements in the range <code>[first, last)</code>. The reduced result is store in <code>Init</code>. This method is equivalent to the parallel execution of the following loop:</p><pre class="m-code"><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">itr</span><span class="o">=</span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">!=</span><span class="n">last</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bop</span><span class="p">(</span><span class="n">Init</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">itr</span><span class="p">);</span>
+<p>The task spawns asynchronous tasks to perform parallel reduction over <code>Initialize</code> and the elements in the range <code>[first, last)</code>. The reduced result is store in <code>Initialize</code>. This method is equivalent to the parallel execution of the following loop:</p><pre class="m-code"><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">itr</span><span class="o">=</span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">!=</span><span class="n">last</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Initialize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bop</span><span class="p">(</span><span class="n">Initialize</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">itr</span><span class="p">);</span>
 <span class="p">}</span></pre><p>Iterators are templated to enable stateful range using <a href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html" class="m-doc-external">std::<wbr />reference_wrapper</a>.</p><p>Please refer to <a href="ParallelReduction.html" class="m-doc">Parallel Reduction</a> for details.</p>
           </div></section>
           <section class="m-doc-details" id="a3451d6d69aceb775450e41ebe169e4b7"><div>
@@ -1051,7 +1051,7 @@
               </div>
               <span class="m-doc-wrap-bumper"><a href="classtf_1_1Task.html" class="m-doc">Task</a> tf::<wbr />FlowBuilder::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3451d6d69aceb775450e41ebe169e4b7" class="m-doc-self">transform_reduce</a>(</span><span class="m-doc-wrap">B first,
               E last,
-              T&amp; Init,
+              T&amp; Initialize,
               BOP bop,
               UOP uop,
               P&amp;&amp; part = P())</span></span>
@@ -1100,7 +1100,7 @@
                   <td>iterator to the end (exclusive)</td>
                 </tr>
                 <tr>
-                  <td>Init</td>
+                  <td>Initialize</td>
                   <td>initial value of the reduction and the storage for the reduced result</td>
                 </tr>
                 <tr>
@@ -1123,8 +1123,8 @@
                 </tr>
               </tfoot>
             </table>
-<p>The task spawns asynchronous tasks to perform parallel reduction over <code>Init</code> and the transformed elements in the range <code>[first, last)</code>. The reduced result is store in <code>Init</code>. This method is equivalent to the parallel execution of the following loop:</p><pre class="m-code"><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">itr</span><span class="o">=</span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">!=</span><span class="n">last</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bop</span><span class="p">(</span><span class="n">Init</span><span class="p">,</span><span class="w"> </span><span class="n">uop</span><span class="p">(</span><span class="o">*</span><span class="n">itr</span><span class="p">));</span>
+<p>The task spawns asynchronous tasks to perform parallel reduction over <code>Initialize</code> and the transformed elements in the range <code>[first, last)</code>. The reduced result is store in <code>Initialize</code>. This method is equivalent to the parallel execution of the following loop:</p><pre class="m-code"><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">itr</span><span class="o">=</span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">!=</span><span class="n">last</span><span class="p">;</span><span class="w"> </span><span class="n">itr</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Initialize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bop</span><span class="p">(</span><span class="n">Initialize</span><span class="p">,</span><span class="w"> </span><span class="n">uop</span><span class="p">(</span><span class="o">*</span><span class="n">itr</span><span class="p">));</span>
 <span class="p">}</span></pre><p>Iterators are templated to enable stateful range using <a href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html" class="m-doc-external">std::<wbr />reference_wrapper</a>.</p><p>Please refer to <a href="ParallelReduction.html" class="m-doc">Parallel Reduction</a> for details.</p>
           </div></section>
           <section class="m-doc-details" id="a1c2ace9290d83c2a006614a4d66ad588"><div>
@@ -1199,7 +1199,7 @@
               E last,
               D d_first,
               BOP bop,
-              T Init)</span></span>
+              T Initialize)</span></span>
             </h3>
             <p>creates an STL-styled parallel inclusive-scan task with an initial value</p>
             <table class="m-table m-fullwidth m-flat">
@@ -1249,7 +1249,7 @@
                   <td>function to perform summation</td>
                 </tr>
                 <tr>
-                  <td>Init</td>
+                  <td>Initialize</td>
                   <td>initial value</td>
                 </tr>
               </tbody>
@@ -1270,7 +1270,7 @@
               <span class="m-doc-wrap-bumper"><a href="classtf_1_1Task.html" class="m-doc">Task</a> tf::<wbr />FlowBuilder::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4e0d618d8eb0b3b2e5e00443a10bf512" class="m-doc-self">exclusive_scan</a>(</span><span class="m-doc-wrap">B first,
               E last,
               D d_first,
-              T Init,
+              T Initialize,
               BOP bop)</span></span>
             </h3>
             <p>creates an STL-styled parallel exclusive-scan task</p>
@@ -1317,7 +1317,7 @@
                   <td>start of output range (may be the same as input range)</td>
                 </tr>
                 <tr>
-                  <td>Init</td>
+                  <td>Initialize</td>
                   <td>initial value</td>
                 </tr>
                 <tr>
@@ -1417,7 +1417,7 @@
               D d_first,
               BOP bop,
               UOP uop,
-              T Init)</span></span>
+              T Initialize)</span></span>
             </h3>
             <p>creates an STL-styled parallel transform-inclusive scan task</p>
             <table class="m-table m-fullwidth m-flat">
@@ -1475,7 +1475,7 @@
                   <td>function to transform elements of the input range</td>
                 </tr>
                 <tr>
-                  <td>Init</td>
+                  <td>Initialize</td>
                   <td>initial value</td>
                 </tr>
               </tbody>
@@ -1498,7 +1498,7 @@
               <span class="m-doc-wrap-bumper"><a href="classtf_1_1Task.html" class="m-doc">Task</a> tf::<wbr />FlowBuilder::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8549478ef819699b30f8daf88f04d577" class="m-doc-self">transform_exclusive_scan</a>(</span><span class="m-doc-wrap">B first,
               E last,
               D d_first,
-              T Init,
+              T Initialize,
               BOP bop,
               UOP uop)</span></span>
             </h3>
@@ -1550,7 +1550,7 @@
                   <td>start of output range (may be the same as input range)</td>
                 </tr>
                 <tr>
-                  <td>Init</td>
+                  <td>Initialize</td>
                   <td>initial value</td>
                 </tr>
                 <tr>

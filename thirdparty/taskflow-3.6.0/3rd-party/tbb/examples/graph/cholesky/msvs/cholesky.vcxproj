@@ -195,7 +195,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\cholesky.cpp" />
-    <ClCompile Include="..\Init.cpp" />
+    <ClCompile Include="..\Initialize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\readme.html" />

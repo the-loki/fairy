@@ -73,9 +73,9 @@ $(function() {
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
 <ul><li class="level1"><a href="#intro_init">Initialization and termination</a><ul><li class="level2"><a href="#intro_init_init">Initializing GLFW</a></li>
-<li class="level2"><a href="#init_hints">Initialization hints</a><ul><li class="level3"><a href="#init_hints_shared">Shared Init hints</a></li>
-<li class="level3"><a href="#init_hints_osx">macOS specific Init hints</a></li>
-<li class="level3"><a href="#init_hints_wayland">Wayland specific Init hints</a></li>
+<li class="level2"><a href="#init_hints">Initialization hints</a><ul><li class="level3"><a href="#init_hints_shared">Shared Initialize hints</a></li>
+<li class="level3"><a href="#init_hints_osx">macOS specific Initialize hints</a></li>
+<li class="level3"><a href="#init_hints_wayland">Wayland specific Initialize hints</a></li>
 <li class="level3"><a href="#init_hints_values">Supported and default values</a></li>
 </ul>
 </li>
@@ -135,22 +135,22 @@ Initializing GLFW</h2>
 Initialization hints</h2>
 <p>Initialization hints are set before <a class="el" href="group__init.html#ga317aac130a235ab08c6db0834907d85e">glfwInit</a> and affect how the library behaves until termination. Hints are set with <a class="el" href="group__init.html#ga110fd1d3f0412822b4f1908c026f724a">glfwInitHint</a>.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="group__init.html#ga110fd1d3f0412822b4f1908c026f724a">glfwInitHint</a>(<a class="code hl_define" href="group__init.html#gab9c0534709fda03ec8959201da3a9a18">GLFW_JOYSTICK_HAT_BUTTONS</a>, <a class="code hl_define" href="group__init.html#gac877fe3b627d21ef3a0a23e0a73ba8c5">GLFW_FALSE</a>);</div>
-<div class="ttc" id="agroup__init_html_ga110fd1d3f0412822b4f1908c026f724a"><div class="ttname"><a href="group__init.html#ga110fd1d3f0412822b4f1908c026f724a">glfwInitHint</a></div><div class="ttdeci">void glfwInitHint(int hint, int value)</div><div class="ttdoc">Sets the specified Init hint to the desired value.</div></div>
-<div class="ttc" id="agroup__init_html_gab9c0534709fda03ec8959201da3a9a18"><div class="ttname"><a href="group__init.html#gab9c0534709fda03ec8959201da3a9a18">GLFW_JOYSTICK_HAT_BUTTONS</a></div><div class="ttdeci">#define GLFW_JOYSTICK_HAT_BUTTONS</div><div class="ttdoc">Joystick hat buttons Init hint.</div><div class="ttdef"><b>Definition</b> glfw3.h:1120</div></div>
+<div class="ttc" id="agroup__init_html_ga110fd1d3f0412822b4f1908c026f724a"><div class="ttname"><a href="group__init.html#ga110fd1d3f0412822b4f1908c026f724a">glfwInitHint</a></div><div class="ttdeci">void glfwInitHint(int hint, int value)</div><div class="ttdoc">Sets the specified Initialize hint to the desired value.</div></div>
+<div class="ttc" id="agroup__init_html_gab9c0534709fda03ec8959201da3a9a18"><div class="ttname"><a href="group__init.html#gab9c0534709fda03ec8959201da3a9a18">GLFW_JOYSTICK_HAT_BUTTONS</a></div><div class="ttdeci">#define GLFW_JOYSTICK_HAT_BUTTONS</div><div class="ttdoc">Joystick hat buttons Initialize hint.</div><div class="ttdef"><b>Definition</b> glfw3.h:1120</div></div>
 <div class="ttc" id="agroup__init_html_gac877fe3b627d21ef3a0a23e0a73ba8c5"><div class="ttname"><a href="group__init.html#gac877fe3b627d21ef3a0a23e0a73ba8c5">GLFW_FALSE</a></div><div class="ttdeci">#define GLFW_FALSE</div><div class="ttdoc">Zero.</div><div class="ttdef"><b>Definition</b> glfw3.h:321</div></div>
 </div><!-- fragment --><p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you set will be ignored until the library is terminated and initialized again.</p>
 <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will ignore them. Setting these hints requires no platform specific headers or functions.</p>
 <h3><a class="anchor" id="init_hints_shared"></a>
-Shared Init hints</h3>
+Shared Initialize hints</h3>
 <p><a class="anchor" id="GLFW_JOYSTICK_HAT_BUTTONS"></a><b>GLFW_JOYSTICK_HAT_BUTTONS</b> specifies whether to also expose joystick hats as buttons, for compatibility with earlier versions of GLFW that did not have <a class="el" href="group__input.html#ga06e660841b3e79c54da4f54a932c5a2c">glfwGetJoystickHats</a>. Possible values are <code>GLFW_TRUE</code> and <code>GLFW_FALSE</code>.</p>
 <h3><a class="anchor" id="init_hints_osx"></a>
-macOS specific Init hints</h3>
+macOS specific Initialize hints</h3>
 <p><a class="anchor" id="GLFW_COCOA_CHDIR_RESOURCES_hint"></a><b>GLFW_COCOA_CHDIR_RESOURCES</b> specifies whether to set the current directory to the application to the <code>Contents/Resources</code> subdirectory of the application's bundle, if present. Set this with <a class="el" href="group__init.html#ga110fd1d3f0412822b4f1908c026f724a">glfwInitHint</a>.</p>
 <p><a class="anchor" id="GLFW_COCOA_MENUBAR_hint"></a><b>GLFW_COCOA_MENUBAR</b> specifies whether to create a basic menu bar, either from a nib or manually, when the first window is created, which is when AppKit is initialized. Set this with <a class="el" href="group__init.html#ga110fd1d3f0412822b4f1908c026f724a">glfwInitHint</a>.</p>
 <h3><a class="anchor" id="init_hints_wayland"></a>
-Wayland specific Init hints</h3>
+Wayland specific Initialize hints</h3>
 <p><a class="anchor" id="GLFW_WAYLAND_LIBDECOR_hint"></a><b>GLFW_WAYLAND_LIBDECOR</b> specifies whether to use <a href="https://gitlab.freedesktop.org/libdecor/libdecor">libdecor</a> for window decorations where available. Possible values are <code>GLFW_WAYLAND_PREFER_LIBDECOR</code> and <code>GLFW_WAYLAND_DISABLE_LIBDECOR</code>. This is ignored on other platforms.</p>
-<dl class="section note"><dt>Note</dt><dd>This Init hint was added in 3.3.9 and is not present in earlier patch releases. It is safe to attempt to set this hint on earlier versions of GLFW 3.3 but it will emit a harmless <a class="el" href="group__errors.html#ga76f6bb9c4eea73db675f096b404593ce">GLFW_INVALID_ENUM</a> error. If you need to avoid causing any errors, you can check the library version first with <a class="el" href="group__init.html#ga9f8ffaacf3c269cc48eafbf8b9b71197">glfwGetVersion</a>.</dd>
+<dl class="section note"><dt>Note</dt><dd>This Initialize hint was added in 3.3.9 and is not present in earlier patch releases. It is safe to attempt to set this hint on earlier versions of GLFW 3.3 but it will emit a harmless <a class="el" href="group__errors.html#ga76f6bb9c4eea73db675f096b404593ce">GLFW_INVALID_ENUM</a> error. If you need to avoid causing any errors, you can check the library version first with <a class="el" href="group__init.html#ga9f8ffaacf3c269cc48eafbf8b9b71197">glfwGetVersion</a>.</dd>
 <dd>
 To set this hint while also building against earlier versions of GLFW 3.3, you can use the numerical constants directly.</dd>
 <dd>

@@ -84,7 +84,7 @@
 <codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;::iterator</ref><sp/>result,<sp/>first,<sp/>last;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>task<sp/>to<sp/>set<sp/>up<sp/>the<sp/>range<sp/>iterators</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Init<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Initialize<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>input<sp/>=<sp/>{1,<sp/>9,<sp/>22,<sp/>3,<sp/>-6,<sp/>13,<sp/>12,<sp/>0,<sp/>9,<sp/>11};</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>first<sp/>=<sp/>input.begin(),</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>last<sp/><sp/>=<sp/>input.end();</highlight></codeline>
@@ -95,12 +95,12 @@
 <codeline><highlight class="normal"><sp/><sp/><ref refid="cpp/utility/functional/ref" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::ref</ref>(first),<sp/><ref refid="cpp/utility/functional/ref" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::ref</ref>(last),<sp/>result,<sp/>[](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i<sp/>==<sp/>22;<sp/>}</highlight></codeline>
 <codeline><highlight class="normal">);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal">Init.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(task);</highlight></codeline>
+<codeline><highlight class="normal">Initialize.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(task);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">executor.run(taskflow);</highlight></codeline>
 <codeline><highlight class="normal">assert(*result<sp/>==<sp/>22);</highlight></codeline>
 </programlisting></para>
-<para>In the above example, when <computeroutput>Init</computeroutput> finishes, <computeroutput>input</computeroutput> has been initialized to 10 elements with <computeroutput>first</computeroutput> and <computeroutput>last</computeroutput> pointing to the data range of <computeroutput>input</computeroutput>. The find-if task will then work on this initialized range as a result of passing iterators by reference.</para>
+<para>In the above example, when <computeroutput>Initialize</computeroutput> finishes, <computeroutput>input</computeroutput> has been initialized to 10 elements with <computeroutput>first</computeroutput> and <computeroutput>last</computeroutput> pointing to the data range of <computeroutput>input</computeroutput>. The find-if task will then work on this initialized range as a result of passing iterators by reference.</para>
 </sect1>
 <sect1 id="ParallelFind_1CreateAParallelFindIfNotTask">
 <title>Create a Parallel Find-If-Not Task</title>

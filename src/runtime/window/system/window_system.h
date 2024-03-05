@@ -14,8 +14,8 @@ class WindowSystem {
 public:
 	static void Initialize(flecs::world& world);
 protected:
-	static void OnStart(flecs::entity entity, Window& window);
-	static void PreUpdate(flecs::entity entity, Window& window);
+	static void SetupGlfwWindow(flecs::entity entity, Window& window);
+	static void UpdateWindow(flecs::entity entity, Window &window);
 };
 
 }

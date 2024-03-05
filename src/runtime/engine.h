@@ -4,8 +4,8 @@
 
 #pragma once
 
+#include <runtime/core/common/type_traits.h>
 #include <memory>
-#include <runtime/platform/window.h>
 #include <flecs.h>
 
 namespace fairy::runtime {
@@ -16,15 +16,10 @@ public:
 	~Engine() = default;
 
 	virtual void Start();
-	virtual bool Init();
-
-protected:
-	[[nodiscard]] bool ShouldFinish() const;
-	void WindowLoop() const;
+	virtual bool Initialize();
 
 public:
 	std::shared_ptr<flecs::world> world_ = nullptr;
-	std::shared_ptr<platform::Window> window_ = nullptr;
 };
 
 }

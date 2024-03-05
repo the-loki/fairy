@@ -31,13 +31,13 @@
 </g>
 <!-- init -->
 <g id="node2" class="node">
-<title>Init</title>
+<title>Initialize</title>
 <ellipse fill="none" stroke="#000000" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Init</text>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Initialize</text>
 </g>
 <!-- init&#45;&gt;cond -->
 <g id="edge1" class="edge">
-<title>Init-&gt;cond</title>
+<title>Initialize-&gt;cond</title>
 <path fill="none" stroke="#000000" d="M54.0623,-18C62.2725,-18 71.5862,-18 80.8676,-18"/>
 <polygon fill="#000000" stroke="#000000" points="80.8726,-21.5001 90.8725,-18 80.8725,-14.5001 80.8726,-21.5001"/>
 </g>

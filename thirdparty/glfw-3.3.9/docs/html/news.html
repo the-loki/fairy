@@ -207,7 +207,7 @@ Support for Vulkan on macOS via MoltenVK</h3>
 <h3><a class="anchor" id="wayland_libdecor_33"></a>
 Wayland libdecor decorations</h3>
 <p>GLFW now supports improved fallback window decorations via <a href="https://gitlab.freedesktop.org/libdecor/libdecor">libdecor</a>.</p>
-<p>Support for libdecor can be toggled before GLFW is initialized with the <a class="el" href="intro_guide.html#GLFW_WAYLAND_LIBDECOR_hint">GLFW_WAYLAND_LIBDECOR</a> Init hint. It is enabled by default.</p>
+<p>Support for libdecor can be toggled before GLFW is initialized with the <a class="el" href="intro_guide.html#GLFW_WAYLAND_LIBDECOR_hint">GLFW_WAYLAND_LIBDECOR</a> Initialize hint. It is enabled by default.</p>
 <h3><a class="anchor" id="content_scale_33"></a>
 Content scale queries for DPI-aware rendering</h3>
 <p>GLFW now provides content scales for windows and monitors, i.e. the ratio between their current DPI and the platform's default DPI, with <a class="el" href="group__window.html#gaf5d31de9c19c4f994facea64d2b3106c">glfwGetWindowContentScale</a> and <a class="el" href="group__monitor.html#gad3152e84465fa620b601265ebfcdb21b">glfwGetMonitorContentScale</a>.</p>
@@ -333,7 +333,7 @@ Removals in 3.3</h2>
 <h3><a class="anchor" id="macos_options_33"></a>
 macOS specific CMake options and macros</h3>
 <p>The <code>GLFW_USE_RETINA</code>, <code>GLFW_USE_CHDIR</code> and <code>GLFW_USE_MENUBAR</code> CMake options and the <code>_GLFW_USE_RETINA</code>, <code>_GLFW_USE_CHDIR</code> and <code>_GLFW_USE_MENUBAR</code> compile-time macros have been removed.</p>
-<p>These options and macros are replaced by the window hint <a class="el" href="window_guide.html#GLFW_COCOA_RETINA_FRAMEBUFFER_hint">GLFW_COCOA_RETINA_FRAMEBUFFER</a> and the Init hints <a class="el" href="intro_guide.html#GLFW_COCOA_CHDIR_RESOURCES_hint">GLFW_COCOA_CHDIR_RESOURCES</a> and <a class="el" href="intro_guide.html#GLFW_COCOA_MENUBAR_hint">GLFW_COCOA_MENUBAR</a>.</p>
+<p>These options and macros are replaced by the window hint <a class="el" href="window_guide.html#GLFW_COCOA_RETINA_FRAMEBUFFER_hint">GLFW_COCOA_RETINA_FRAMEBUFFER</a> and the Initialize hints <a class="el" href="intro_guide.html#GLFW_COCOA_CHDIR_RESOURCES_hint">GLFW_COCOA_CHDIR_RESOURCES</a> and <a class="el" href="intro_guide.html#GLFW_COCOA_MENUBAR_hint">GLFW_COCOA_MENUBAR</a>.</p>
 <p>Existing projects and makefiles that set these options or define these macros during compilation of GLFW will still build but it will have no effect and the default behaviors will be used.</p>
 <h3><a class="anchor" id="vulkan_sdk_33"></a>
 LunarG Vulkan SDK dependency</h3>

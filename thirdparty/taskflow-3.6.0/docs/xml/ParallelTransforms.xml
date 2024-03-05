@@ -57,7 +57,7 @@
 <para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;</ref><sp/>src,<sp/>tgt;</highlight></codeline>
 <codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;::iterator</ref><sp/>first,<sp/>last,<sp/>d_first;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Init<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Initialize<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>src.resize(1000);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>tgt.resize(1000);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>first<sp/><sp/><sp/>=<sp/>src.begin();</highlight></codeline>
@@ -73,9 +73,9 @@
 <codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal">);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal">Init.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(transform);</highlight></codeline>
+<codeline><highlight class="normal">Initialize.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(transform);</highlight></codeline>
 </programlisting></para>
-<para>When <computeroutput>Init</computeroutput> finishes, the parallel-transform task <computeroutput>transform</computeroutput> will see <computeroutput>first</computeroutput> pointing to the beginning of <computeroutput>src</computeroutput> and <computeroutput>last</computeroutput> pointing to the end of <computeroutput>src</computeroutput>. Then, it simultaneously transforms these 1000 items by adding one to each element and stores the result in another range starting at <computeroutput>d_first</computeroutput>.</para>
+<para>When <computeroutput>Initialize</computeroutput> finishes, the parallel-transform task <computeroutput>transform</computeroutput> will see <computeroutput>first</computeroutput> pointing to the beginning of <computeroutput>src</computeroutput> and <computeroutput>last</computeroutput> pointing to the end of <computeroutput>src</computeroutput>. Then, it simultaneously transforms these 1000 items by adding one to each element and stores the result in another range starting at <computeroutput>d_first</computeroutput>.</para>
 </sect1>
 <sect1 id="ParallelTransforms_1ParallelBinaryTransformsOverARange">
 <title>Create a Binary Parallel-Transform Task</title>

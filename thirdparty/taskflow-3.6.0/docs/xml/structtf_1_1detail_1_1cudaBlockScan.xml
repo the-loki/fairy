@@ -69,7 +69,7 @@
         </templateparamlist>
         <type>__device__ cudaScanResult&lt; T &gt;</type>
         <definition>__device__ cudaScanResult&lt; T &gt; tf::detail::cudaBlockScan&lt; nt, T &gt;::operator()</definition>
-        <argsstring>(unsigned tid, T x, storage_t &amp;storage, unsigned count=nt, op_t op=op_t(), T Init=T(), cudaScanType type=cudaScanType::EXCLUSIVE) const</argsstring>
+        <argsstring>(unsigned tid, T x, storage_t &amp;storage, unsigned count=nt, op_t op=op_t(), T Initialize=T(), cudaScanType type=cudaScanType::EXCLUSIVE) const</argsstring>
         <name>operator()</name>
         <qualifiedname>tf::detail::cudaBlockScan::operator()</qualifiedname>
         <param>
@@ -96,7 +96,7 @@
         </param>
         <param>
           <type>T</type>
-          <declname>Init</declname>
+          <declname>Initialize</declname>
           <defval>T()</defval>
         </param>
         <param>
@@ -125,7 +125,7 @@
         </templateparamlist>
         <type>__device__ cudaScanResult&lt; T, vt &gt;</type>
         <definition>__device__ cudaScanResult&lt; T, vt &gt; tf::detail::cudaBlockScan&lt; nt, T &gt;::operator()</definition>
-        <argsstring>(unsigned tid, cudaArray&lt; T, vt &gt; x, storage_t &amp;storage, T carry_in=T(), bool use_carry_in=false, unsigned count=nt, op_t op=op_t(), T Init=T(), cudaScanType type=cudaScanType::EXCLUSIVE) const</argsstring>
+        <argsstring>(unsigned tid, cudaArray&lt; T, vt &gt; x, storage_t &amp;storage, T carry_in=T(), bool use_carry_in=false, unsigned count=nt, op_t op=op_t(), T Initialize=T(), cudaScanType type=cudaScanType::EXCLUSIVE) const</argsstring>
         <name>operator()</name>
         <qualifiedname>tf::detail::cudaBlockScan::operator()</qualifiedname>
         <param>
@@ -162,7 +162,7 @@
         </param>
         <param>
           <type>T</type>
-          <declname>Init</declname>
+          <declname>Initialize</declname>
           <defval>T()</defval>
         </param>
         <param>

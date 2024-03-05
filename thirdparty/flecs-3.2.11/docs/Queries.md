@@ -185,7 +185,7 @@ ecs_filter_t *f = ecs_filter_init(world, &desc);
 
 The following table provides an overview of the query types with the init/fini functions:
 
-| Kind   | Type           | Init              | Fini              | Descriptor type     |
+| Kind   | Type           | Initialize              | Fini              | Descriptor type     |
 |--------|----------------|-------------------|-------------------|---------------------|
 | Filter | `ecs_filter_t` | `ecs_filter_init` | `ecs_filter_fini` | `ecs_filter_desc_t` |
 | Query  | `ecs_query_t`  | `ecs_query_init`  | `ecs_query_fini`  | `ecs_query_desc_t`  |

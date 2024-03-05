@@ -1407,7 +1407,7 @@ EcsOnStore
 ```cpp
 flecs::OnPreUpdate
 flecs::PostLoad
-flecs::PreUpdate
+flecs::UpdateWindow
 flecs::OnUpdate
 flecs::OnValidate
 flecs::PostUpdate
@@ -1420,7 +1420,7 @@ flecs::OnStore
 ```cs
 Ecs.OnPreUpdate
 Ecs.PostLoad
-Ecs.PreUpdate
+Ecs.UpdateWindow
 Ecs.OnUpdate
 Ecs.OnValidate
 Ecs.PostUpdate

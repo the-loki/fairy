@@ -1646,7 +1646,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This function returns the state of all buttons of the specified joystick. Each element in the array is either <code>GLFW_PRESS</code> or <code>GLFW_RELEASE</code>.</p>
-<p>For backward compatibility with earlier versions that did not have <a class="el" href="group__input.html#ga06e660841b3e79c54da4f54a932c5a2c">glfwGetJoystickHats</a>, the button array also includes all hats, each represented as four buttons. The hats are in the same order as returned by <b>glfwGetJoystickHats</b> and are in the order <em>up</em>, <em>right</em>, <em>down</em> and <em>left</em>. To disable these extra buttons, set the <a class="el" href="intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS">GLFW_JOYSTICK_HAT_BUTTONS</a> Init hint before initialization.</p>
+<p>For backward compatibility with earlier versions that did not have <a class="el" href="group__input.html#ga06e660841b3e79c54da4f54a932c5a2c">glfwGetJoystickHats</a>, the button array also includes all hats, each represented as four buttons. The hats are in the same order as returned by <b>glfwGetJoystickHats</b> and are in the order <em>up</em>, <em>right</em>, <em>down</em> and <em>left</em>. To disable these extra buttons, set the <a class="el" href="intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS">GLFW_JOYSTICK_HAT_BUTTONS</a> Initialize hint before initialization.</p>
 <p>If the specified joystick is not present this function will return <code>NULL</code> but will not generate an error. This can be used instead of first calling <a class="el" href="group__input.html#gaed0966cee139d815317f9ffcba64c9f1">glfwJoystickPresent</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

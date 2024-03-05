@@ -3,8 +3,10 @@
 //
 
 #include <runtime/window/system/window_system.h>
+#include <runtime/render/component/graphics_context.h>
 #include <thread>
-#include <iostream>
+
+using GraphicsContext = fairy::runtime::render::GraphicsContext;
 
 namespace fairy::runtime::window {
 
@@ -14,16 +16,21 @@ static void PrintGlfwError(int error, const char *description) {
 
 void WindowSystem::Initialize(flecs::world &world) {
 	world.entity().set(fairy::runtime::window::Window::CreateDefault());
-	world.system<Window>().kind(flecs::OnStart).each(WindowSystem::OnStart);
-	world.system<Window>().kind(flecs::PreUpdate).each(WindowSystem::PreUpdate);
+	world.system<Window>().kind(flecs::OnStart).write<Window>().each(WindowSystem::SetupGlfwWindow);
+	world.system<Window>().kind(flecs::PreUpdate).write<GraphicsContext>().each(WindowSystem::UpdateWindow);
 }
 
-void WindowSystem::PreUpdate(flecs::entity entity, Window &window) {
+void WindowSystem::UpdateWindow(flecs::entity entity, Window &window) {
+	if(glfwWindowShouldClose(window.window_)){
+		entity.world().quit();
+		return;
+	}
+
 	glfwPollEvents();
 	glfwGetFramebufferSize(window.window_, &(window.size_.x), &(window.size_.y));
 }
 
-void WindowSystem::OnStart(flecs::entity entity, Window &window) {
+void WindowSystem::SetupGlfwWindow(flecs::entity entity, Window &window) {
 	glfwSetErrorCallback(PrintGlfwError);
 
 	if (!glfwInit()) {
@@ -44,6 +51,12 @@ void WindowSystem::OnStart(flecs::entity entity, Window &window) {
 	}
 
 	glfwShowWindow(window.window_);
+	entity.set(GraphicsContext{});
 }
+
+
+
+
+
 
 }

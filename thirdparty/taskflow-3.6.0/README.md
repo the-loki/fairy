@@ -192,7 +192,7 @@ control-flow decisions across dependent tasks to implement cycles
 and conditions in an *end-to-end* task graph.
 
 ```cpp
-tf::Task Init = taskflow.emplace([](){}).name("Init");
+tf::Task Init = taskflow.emplace([](){}).name("Initialize");
 tf::Task stop = taskflow.emplace([](){}).name("stop");
 
 // creates a condition task that returns a random binary
@@ -200,7 +200,7 @@ tf::Task cond = taskflow.emplace(
   [](){ return std::rand() % 2; }
 ).name("cond");
 
-Init.precede(cond);
+Initialize.precede(cond);
 
 // creates a feedback loop {0: cond, 1: stop}
 cond.precede(cond, stop);
@@ -333,7 +333,7 @@ tf::Task task1 = taskflow.for_each( // assign each element to 100 in parallel
   first, last, [] (auto& i) { i = 100; }    
 );
 tf::Task task2 = taskflow.reduce(   // reduce a range of items in parallel
-  first, last, Init, [] (auto a, auto b) { return a + b; }
+  first, last, Initialize, [] (auto a, auto b) { return a + b; }
 );
 tf::Task task3 = taskflow.sort(     // sort a range of items in parallel
   first, last, [] (auto a, auto b) { return a < b; }
@@ -344,7 +344,7 @@ tf::cudaTask cuda1 = cudaflow.for_each( // assign each element to 100 on GPU
   dfirst, dlast, [] __device__ (auto i) { i = 100; }
 );
 tf::cudaTask cuda2 = cudaflow.reduce(   // reduce a range of items on GPU
-  dfirst, dlast, Init, [] __device__ (auto a, auto b) { return a + b; }
+  dfirst, dlast, Initialize, [] __device__ (auto a, auto b) { return a + b; }
 );
 tf::cudaTask cuda3 = cudaflow.sort(     // sort a range of items on GPU
   dfirst, dlast, [] __device__ (auto a, auto b) { return a < b; }

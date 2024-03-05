@@ -115,11 +115,11 @@ Taskflow works on Linux, Windows, and Mac OS X.</para>
 </para>
 </listitem><listitem><para>Added parallel-scan algorithms to Taskflow<itemizedlist>
 <listitem><para><ref refid="classtf_1_1FlowBuilder_1a1c2ace9290d83c2a006614a4d66ad588" kindref="member">tf::Taskflow::inclusive_scan(B first, E last, D d_first, BOP bop)</ref></para>
-</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a0b589a5bbf9b18e6484fa9e554d39a39" kindref="member">tf::Taskflow::inclusive_scan(B first, E last, D d_first, BOP bop, T Init)</ref></para>
+</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a0b589a5bbf9b18e6484fa9e554d39a39" kindref="member">tf::Taskflow::inclusive_scan(B first, E last, D d_first, BOP bop, T Initialize)</ref></para>
 </listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a82f3c3f49a2d52cd52f6eac07a659e9c" kindref="member">tf::Taskflow::transform_inclusive_scan(B first, E last, D d_first, BOP bop, UOP uop)</ref></para>
-</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a49f7e17d02c708035b9134d8c6c89f90" kindref="member">tf::Taskflow::transform_inclusive_scan(B first, E last, D d_first, BOP bop, UOP uop, T Init)</ref></para>
-</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a4e0d618d8eb0b3b2e5e00443a10bf512" kindref="member">tf::Taskflow::exclusive_scan(B first, E last, D d_first, T Init, BOP bop)</ref></para>
-</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a8549478ef819699b30f8daf88f04d577" kindref="member">tf::Taskflow::transform_exclusive_scan(B first, E last, D d_first, T Init, BOP bop, UOP uop)</ref></para>
+</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a49f7e17d02c708035b9134d8c6c89f90" kindref="member">tf::Taskflow::transform_inclusive_scan(B first, E last, D d_first, BOP bop, UOP uop, T Initialize)</ref></para>
+</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a4e0d618d8eb0b3b2e5e00443a10bf512" kindref="member">tf::Taskflow::exclusive_scan(B first, E last, D d_first, T Initialize, BOP bop)</ref></para>
+</listitem><listitem><para><ref refid="classtf_1_1FlowBuilder_1a8549478ef819699b30f8daf88f04d577" kindref="member">tf::Taskflow::transform_exclusive_scan(B first, E last, D d_first, T Initialize, BOP bop, UOP uop)</ref></para>
 </listitem></itemizedlist>
 </para>
 </listitem><listitem><para>Added parallel-find algorithms to Taskflow<itemizedlist>

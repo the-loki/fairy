@@ -89,7 +89,7 @@ If you get an assert stating "Could not load font file!", your font filename is 
 
 **Load multiple fonts:**
 ```cpp
-// Init
+// Initialize
 ImGuiIO& io = ImGui::GetIO();
 ImFont* font1 = io.Fonts->AddFontFromFileTTF("font.ttf", size_pixels);
 ImFont* font2 = io.Fonts->AddFontFromFileTTF("anotherfont.otf", size_pixels);

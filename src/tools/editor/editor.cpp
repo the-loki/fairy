@@ -4,7 +4,7 @@
 int main() {
 	fairy::runtime::Engine engine;
 
-	if (engine.Init()) {
+	if (engine.Initialize()) {
 		engine.Start();
 	}
 

@@ -376,7 +376,7 @@ GLFWAPI void glfwInitHint(int hint, int value)
     }
 
     _glfwInputError(GLFW_INVALID_ENUM,
-                    "Invalid Init hint 0x%08X", hint);
+                    "Invalid Initialize hint 0x%08X", hint);
 }
 
 GLFWAPI void glfwGetVersion(int* major, int* minor, int* rev)

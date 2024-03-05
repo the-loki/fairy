@@ -136,7 +136,7 @@ typedef struct ecs_vars_t {
     ecs_expr_var_scope_t *cur;
 } ecs_vars_t;
 
-/** Init variable storage */
+/** Initialize variable storage */
 FLECS_API
 void ecs_vars_init(
     ecs_world_t *world,

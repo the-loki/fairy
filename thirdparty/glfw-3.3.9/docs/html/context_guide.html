@@ -127,7 +127,7 @@ Offscreen contexts</h2>
 <div class="ttc" id="agroup__window_html_gafb3cdc45297e06d8f1eb13adc69ca6c4"><div class="ttname"><a href="group__window.html#gafb3cdc45297e06d8f1eb13adc69ca6c4">GLFW_VISIBLE</a></div><div class="ttdeci">#define GLFW_VISIBLE</div><div class="ttdoc">Window visibility window hint and attribute.</div><div class="ttdef"><b>Definition</b> glfw3.h:816</div></div>
 </div><!-- fragment --><p>The window never needs to be shown and its context can be used as a plain offscreen context. Depending on the window manager, the size of a hidden window's framebuffer may not be usable or modifiable, so framebuffer objects are recommended for rendering with such contexts.</p>
 <p>You should still <a class="el" href="input_guide.html#events">process events</a> as long as you have at least one window, even if none of them are visible.</p>
-<p><b>macOS:</b> The first time a window is created the menu bar is created. This is not desirable for example when writing a command-line only application. Menu bar creation can be disabled with the <a class="el" href="group__init.html#ga71e0b4ce2f2696a84a9b8c5e12dc70cf">GLFW_COCOA_MENUBAR</a> Init hint.</p>
+<p><b>macOS:</b> The first time a window is created the menu bar is created. This is not desirable for example when writing a command-line only application. Menu bar creation can be disabled with the <a class="el" href="group__init.html#ga71e0b4ce2f2696a84a9b8c5e12dc70cf">GLFW_COCOA_MENUBAR</a> Initialize hint.</p>
 <h2><a class="anchor" id="context_less"></a>
 Windows without contexts</h2>
 <p>You can disable context creation by setting the <a class="el" href="window_guide.html#GLFW_CLIENT_API_hint">GLFW_CLIENT_API</a> hint to <code>GLFW_NO_API</code>.</p>
