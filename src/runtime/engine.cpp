@@ -5,14 +5,6 @@
 #include <runtime/engine.h>
 #include <iostream>
 
-struct Position {
-	float x, y;
-};
-
-struct Velocity {
-	float x, y;
-};
-
 namespace fairy::runtime {
 
 bool Engine::Init(const InitEngineConfig &config) {
