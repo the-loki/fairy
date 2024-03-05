@@ -539,7 +539,7 @@ typedef struct {
   EcsRgb color;
 } Fence;
 
-// Initialize a regular component
+// Register a regular component
 ECS_COMPONENT(world, Fence);
 
 // Because the Fence assembly has the same name as the

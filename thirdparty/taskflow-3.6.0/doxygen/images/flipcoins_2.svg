@@ -7,7 +7,7 @@
 <g id="node1" class="node">
 <title>p0x7fa9a4803e30</title>
 <ellipse fill="none" stroke="#000000" cx="27" cy="-93" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-88.8" font-family="Times,serif" font-size="14.00" fill="#000000">Initialize</text>
+<text text-anchor="middle" x="27" y="-88.8" font-family="Times,serif" font-size="14.00" fill="#000000">Init</text>
 </g>
 <!-- p0x7fa9a4803f50 -->
 <g id="node2" class="node">

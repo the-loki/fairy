@@ -24,7 +24,7 @@ struct ecs_switch_t {
     ecs_vec_t values;   /* vec<uint64_t> */
 };
 
-/** Initialize new switch. */
+/** Init new switch. */
 FLECS_DBG_API
 void flecs_switch_init(
     ecs_switch_t* sw,

@@ -185,7 +185,7 @@ ecs_filter_t *f = ecs_filter_init(world, &desc);
 
 The following table provides an overview of the query types with the init/fini functions:
 
-| Kind   | Type           | Initialize              | Fini              | Descriptor type     |
+| Kind   | Type           | Init              | Fini              | Descriptor type     |
 |--------|----------------|-------------------|-------------------|---------------------|
 | Filter | `ecs_filter_t` | `ecs_filter_init` | `ecs_filter_fini` | `ecs_filter_desc_t` |
 | Query  | `ecs_query_t`  | `ecs_query_init`  | `ecs_query_fini`  | `ecs_query_desc_t`  |
@@ -592,7 +592,7 @@ flecs::filter<> f = world.filter_builder()
 Components can also be queried for by name. To query for component types by name, they have to be used or registered first.
 
 ```cpp
-// Initialize component type so we can look it up by name
+// Register component type so we can look it up by name
 world.component<Position>();
 
 // Create entity with name so we can look it up
@@ -616,7 +616,7 @@ Any named entity can be specified this way. Consider:
 ```cpp
 struct Npc { };
 
-// Initialize component type so we can look it up by name
+// Register component type so we can look it up by name
 world.component<Npc>();
 
 // Create entity with name so we can look it up

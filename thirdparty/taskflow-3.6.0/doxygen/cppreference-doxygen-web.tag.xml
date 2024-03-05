@@ -4504,8 +4504,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -5069,8 +5069,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -7464,8 +7464,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -8466,8 +8466,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -10110,8 +10110,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -11070,8 +11070,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -11516,8 +11516,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -13179,8 +13179,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -14060,8 +14060,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -14862,8 +14862,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -16445,8 +16445,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -17526,8 +17526,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -18504,8 +18504,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -21307,8 +21307,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -22479,8 +22479,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -23631,8 +23631,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -24394,8 +24394,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -24988,8 +24988,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -26550,8 +26550,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -27392,8 +27392,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -27840,8 +27840,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -28244,8 +28244,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -30139,8 +30139,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -30953,8 +30953,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -31374,8 +31374,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -32223,8 +32223,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -33036,8 +33036,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -33391,8 +33391,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -33940,8 +33940,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -34473,8 +34473,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>
@@ -34897,8 +34897,8 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>Initialize</name>
-      <anchorfile>cpp/io/basic_ios/Initialize</anchorfile>
+      <name>Init</name>
+      <anchorfile>cpp/io/basic_ios/Init</anchorfile>
       <anchor></anchor>
       <arglist>(T... args)</arglist>
     </member>

@@ -208,7 +208,7 @@ struct world {
         ecs_quit(m_world);
     }
 
-    /** Initialize action to be executed when world is destroyed.
+    /** Register action to be executed when world is destroyed.
      */
     void atfini(ecs_fini_action_t action, void *ctx) const {
         ecs_atfini(m_world, action, ctx);

@@ -66,7 +66,7 @@
 <para><programlisting filename=".cpp"><codeline><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>vec;</highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>first,<sp/>last;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Initialize<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Init<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>first<sp/>=<sp/>0;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>last<sp/><sp/>=<sp/>1000;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>vec<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[1000];<sp/><sp/></highlight></codeline>
@@ -83,9 +83,9 @@
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;parallel<sp/>iteration<sp/>on<sp/>index<sp/>&quot;<sp/>&lt;&lt;<sp/>vec[i]<sp/>&lt;&lt;<sp/>&apos;\n&apos;;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>});</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal">Initialize.precede(pf);</highlight></codeline>
+<codeline><highlight class="normal">Init.precede(pf);</highlight></codeline>
 </programlisting></para>
-<para>When <computeroutput>Initialize</computeroutput> finishes, the parallel-for task <computeroutput>pf</computeroutput> will see <computeroutput>first</computeroutput> as 0 and <computeroutput>last</computeroutput> as 1000 and performs parallel iterations over the 1000 items.</para>
+<para>When <computeroutput>Init</computeroutput> finishes, the parallel-for task <computeroutput>pf</computeroutput> will see <computeroutput>first</computeroutput> as 0 and <computeroutput>last</computeroutput> as 1000 and performs parallel iterations over the 1000 items.</para>
 </sect1>
 <sect1 id="ParallelIterations_1A1IteratorBasedParallelFor">
 <title>Create an Iterator-based Parallel-Iteration Task</title>
@@ -112,7 +112,7 @@
 <para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;</ref><sp/>vec;</highlight></codeline>
 <codeline><highlight class="normal"><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;int&gt;::iterator</ref><sp/>first,<sp/>last;;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Initialize<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Init<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>vec.resize(1000);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>first<sp/>=<sp/>vec.begin();</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>last<sp/><sp/>=<sp/>vec.end();</highlight></codeline>
@@ -127,9 +127,9 @@
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;parallel<sp/>iteration<sp/>on<sp/>item<sp/>&quot;<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>&apos;\n&apos;;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>});</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal">Initialize.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(pf);</highlight></codeline>
+<codeline><highlight class="normal">Init.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(pf);</highlight></codeline>
 </programlisting></para>
-<para>When <computeroutput>Initialize</computeroutput> finishes, the parallel-for task <computeroutput>pf</computeroutput> will see <computeroutput>first</computeroutput> pointing to the beginning of <computeroutput>vec</computeroutput> and <computeroutput>last</computeroutput> pointing to the end of <computeroutput>vec</computeroutput> and performs parallel iterations over the 1000 items. The two tasks form an end-to-end task graph where the parameters of parallel-for are computed on the fly.</para>
+<para>When <computeroutput>Init</computeroutput> finishes, the parallel-for task <computeroutput>pf</computeroutput> will see <computeroutput>first</computeroutput> pointing to the beginning of <computeroutput>vec</computeroutput> and <computeroutput>last</computeroutput> pointing to the end of <computeroutput>vec</computeroutput> and performs parallel iterations over the 1000 items. The two tasks form an end-to-end task graph where the parameters of parallel-for are computed on the fly.</para>
 </sect1>
 <sect1 id="ParallelIterations_1ParallelIterationsConfigureAPartitioner">
 <title>Configure a Partitioner</title>

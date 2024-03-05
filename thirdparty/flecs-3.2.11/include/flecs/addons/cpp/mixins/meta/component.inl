@@ -1,5 +1,5 @@
 
-/** Initialize opaque type interface */
+/** Register opaque type interface */
 template <typename Func>
 component& opaque(const Func& type_support) {
     flecs::world world(m_world);

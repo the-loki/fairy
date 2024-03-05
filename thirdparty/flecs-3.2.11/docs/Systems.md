@@ -531,7 +531,7 @@ world.Routine<Position, Velocity>("Move")
 Systems are ordered using a topology sort on the `DependsOn` relationship. Systems higher up in the topology are ran first. In the following example the order of systems is `InputSystem, MoveSystem, CollisionSystem`:
 
 ```
-      UpdateWindow
+      PreUpdate
       /       \
  InputSystem  OnUpdate
                /     \
@@ -557,10 +557,10 @@ Flecs has the following builtin phases, listed in topology order:
 </li>
 <li><b class="tab-title">C++</b>
 
-- `flecs::SetupGlfwWindow`
-- `flecs::OnPreUpdate`
+- `flecs::OnStart`
+- `flecs::OnLoad`
 - `flecs::PostLoad`
-- `flecs::UpdateWindow`
+- `flecs::PreUpdate`
 - `flecs::OnUpdate`
 - `flecs::OnValidate`
 - `flecs::PostUpdate`
@@ -569,10 +569,10 @@ Flecs has the following builtin phases, listed in topology order:
 </li>
 <li><b class="tab-title">C#</b>
 
-- `Ecs.SetupGlfwWindow`
-- `Ecs.OnPreUpdate`
+- `Ecs.OnStart`
+- `Ecs.OnLoad`
 - `Ecs.PostLoad`
-- `Ecs.UpdateWindow`
+- `Ecs.PreUpdate`
 - `Ecs.OnUpdate`
 - `Ecs.OnValidate`
 - `Ecs.PostUpdate`
@@ -582,7 +582,7 @@ Flecs has the following builtin phases, listed in topology order:
 </ul>
 </div>
 
-The `EcsOnStart`/`flecs::SetupGlfwWindow` phase is a special phase that is only ran the first time `progress()` is called.
+The `EcsOnStart`/`flecs::OnStart` phase is a special phase that is only ran the first time `progress()` is called.
 
 An application can create custom phases, which can be (but don't need to be) branched off of existing ones:
 

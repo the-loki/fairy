@@ -116,7 +116,7 @@ untyped_component& bit(const char *name, uint32_t value) {
     return *this;
 }
 
-/** Initialize array metadata for component */
+/** Register array metadata for component */
 template <typename Elem>
 untyped_component& array(int32_t elem_count) {
     ecs_array_desc_t desc = {};

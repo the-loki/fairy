@@ -1676,7 +1676,7 @@ FLECS_API
 bool ecs_is_fini(
     const ecs_world_t *world);
 
-/** Initialize action to be executed when world is destroyed.
+/** Register action to be executed when world is destroyed.
  * Fini actions are typically used when a module needs to clean up before a
  * world shuts down.
  *
@@ -1729,7 +1729,7 @@ FLECS_API
 void ecs_frame_end(
     ecs_world_t *world);
 
-/** Initialize action to be executed once after frame.
+/** Register action to be executed once after frame.
  * Post frame actions are typically used for calling operations that cannot be
  * invoked during iteration, such as changing the number of threads.
  *
@@ -3724,7 +3724,7 @@ const ecs_type_info_t* ecs_get_type_info(
     const ecs_world_t *world,
     ecs_id_t id);
 
-/** Initialize hooks for component.
+/** Register hooks for component.
  * Hooks allow for the execution of user code when components are constructed,
  * copied, moved, destructed, added, removed or set. Hooks can be assigned as
  * as long as a component has not yet been used (added to an entity).

@@ -356,7 +356,7 @@ struct untyped_component : entity {
  */
 template <typename T>
 struct component : untyped_component {
-    /** Initialize a component.
+    /** Register a component.
      * If the component was already registered, this operation will return a handle
      * to the existing component.
      *
@@ -433,7 +433,7 @@ struct component : untyped_component {
         m_id = id;
     }
 
-    /** Initialize on_add hook. */
+    /** Register on_add hook. */
     template <typename Func>
     component<T>& on_add(Func&& func) {
         using Delegate = typename _::each_delegate<typename std::decay<Func>::type, T>;
@@ -449,7 +449,7 @@ struct component : untyped_component {
         return *this;
     }
 
-    /** Initialize on_remove hook. */
+    /** Register on_remove hook. */
     template <typename Func>
     component<T>& on_remove(Func&& func) {
         using Delegate = typename _::each_delegate<
@@ -466,7 +466,7 @@ struct component : untyped_component {
         return *this;
     }
 
-    /** Initialize on_set hook. */
+    /** Register on_set hook. */
     template <typename Func>
     component<T>& on_set(Func&& func) {
         using Delegate = typename _::each_delegate<

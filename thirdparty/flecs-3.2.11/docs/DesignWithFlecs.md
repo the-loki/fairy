@@ -91,26 +91,26 @@ Phases and pipelines are the primitives that Flecs uses to order systems. A pipe
 ### Selecting a Phase
 When you create a system, you can assign a phase to it. By default, that phase is `OnUpdate`. Flecs comes with a whole bunch of phases though, and just looking at the whole list can feel a bit overwhelming:
 
-- `OnPreUpdate`
+- `OnLoad`
 - `PostLoad`
-- `UpdateWindow`
+- `PreUpdate`
 - `OnUpdate`
 - `OnValidate`
 - `PostUpdate`
 - `PreStore`
 - `OnStore`
 
-So what do these all mean? Actually they mean nothing at all! They are just tags you can assign to systems, and those tags ensure that all systems in, say, the `UpdateWindow` phase are executed _before_ the systems in the `OnUpdate` phase. What is also important to realize is that this list of phases is only the default provided by Flecs. Maybe your project needs only half of those, or maybe it needs entirely different ones! Flecs lets you specify your custom phases to match your project needs.
+So what do these all mean? Actually they mean nothing at all! They are just tags you can assign to systems, and those tags ensure that all systems in, say, the `PreUpdate` phase are executed _before_ the systems in the `OnUpdate` phase. What is also important to realize is that this list of phases is only the default provided by Flecs. Maybe your project needs only half of those, or maybe it needs entirely different ones! Flecs lets you specify your custom phases to match your project needs.
 
 There are some conventions around the builtin phases, and following them helps to ensure that your code works well with the Flecs module ecosystem. Here they are:
 
-### OnPreUpdate
+### OnLoad
 This phase contains all the systems that load data into your ECS. This would be a good place to load keyboard and mouse inputs.
 
 ### PostLoad
 Often the imported data needs to be processed. Maybe you want to associate your keypresses with high level actions rather than comparing explicitly in your game code if the user pressed the 'K' key. The `PostLoad` phase is a good place for this.
 
-### UpdateWindow
+### PreUpdate
 Now that the input is loaded and processed, it's time to get ready to start processing our game logic. Anything that needs to happen after input processing but before processing the game logic can happen here. This can be a good place to prepare the frame, maybe clean up some things from the previous frame, etcetera.
 
 ### OnUpdate

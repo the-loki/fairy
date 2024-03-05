@@ -214,7 +214,7 @@ The following example creates a dynamic task (<ref refid="classtf_1_1Subflow" ki
 The following example creates an if-else block using one condition task and three static tasks.</para>
 <para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classtf_1_1Taskflow" kindref="compound">tf::Taskflow</ref><sp/>taskflow;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[Initialize,<sp/>cond,<sp/>yes,<sp/>no]<sp/>=<sp/>taskflow.<ref refid="classtf_1_1FlowBuilder_1a60d7a666cab71ecfa3010b2efb0d6b57" kindref="member">emplace</ref>(</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[Init,<sp/>cond,<sp/>yes,<sp/>no]<sp/>=<sp/>taskflow.<ref refid="classtf_1_1FlowBuilder_1a60d7a666cab71ecfa3010b2efb0d6b57" kindref="member">emplace</ref>(</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>[]<sp/>()<sp/>{<sp/>},</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>[]<sp/>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/>},</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>[]<sp/>()<sp/>{<sp/><ref refid="cpp/io/basic_ostream" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::cout</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;yes\n&quot;</highlight><highlight class="normal">;<sp/>},</highlight></codeline>
@@ -223,7 +223,7 @@ The following example creates an if-else block using one condition task and thre
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>executes<sp/>yes<sp/>if<sp/>cond<sp/>returns<sp/>0,<sp/>or<sp/>no<sp/>if<sp/>cond<sp/>returns<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">cond.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(yes,<sp/>no);</highlight></codeline>
-<codeline><highlight class="normal">cond.<ref refid="classtf_1_1Task_1a331b1b726555072e7c7d10941257f664" kindref="member">succeed</ref>(Initialize);</highlight></codeline>
+<codeline><highlight class="normal">cond.<ref refid="classtf_1_1Task_1a331b1b726555072e7c7d10941257f664" kindref="member">succeed</ref>(Init);</highlight></codeline>
 </programlisting></para>
 <para>Please refer to <ref refid="ConditionalTasking" kindref="compound">Conditional Tasking</ref> for details. </para>
         </detaileddescription>
@@ -277,7 +277,7 @@ The following example creates an if-else block using one condition task and thre
 The following example creates a multi-condition task that selectively jumps to two successor tasks.</para>
 <para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classtf_1_1Taskflow" kindref="compound">tf::Taskflow</ref><sp/>taskflow;</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[Initialize,<sp/>cond,<sp/>branch1,<sp/>branch2,<sp/>branch3]<sp/>=<sp/>taskflow.<ref refid="classtf_1_1FlowBuilder_1a60d7a666cab71ecfa3010b2efb0d6b57" kindref="member">emplace</ref>(</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[Init,<sp/>cond,<sp/>branch1,<sp/>branch2,<sp/>branch3]<sp/>=<sp/>taskflow.<ref refid="classtf_1_1FlowBuilder_1a60d7a666cab71ecfa3010b2efb0d6b57" kindref="member">emplace</ref>(</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>[]<sp/>()<sp/>{<sp/>},</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>[]<sp/>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classtf_1_1SmallVector" kindref="compound">tf::SmallVector</ref>{0,<sp/>2};<sp/>},</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>[]<sp/>()<sp/>{<sp/><ref refid="cpp/io/basic_ostream" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::cout</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;branch1\n&quot;</highlight><highlight class="normal">;<sp/>},</highlight></codeline>
@@ -287,7 +287,7 @@ The following example creates a multi-condition task that selectively jumps to t
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>executes<sp/>branch1<sp/>and<sp/>branch3<sp/>when<sp/>cond<sp/>returns<sp/>0<sp/>and<sp/>2</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">cond.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(branch1,<sp/>branch2,<sp/>branch3);</highlight></codeline>
-<codeline><highlight class="normal">cond.<ref refid="classtf_1_1Task_1a331b1b726555072e7c7d10941257f664" kindref="member">succeed</ref>(Initialize);</highlight></codeline>
+<codeline><highlight class="normal">cond.<ref refid="classtf_1_1Task_1a331b1b726555072e7c7d10941257f664" kindref="member">succeed</ref>(Init);</highlight></codeline>
 </programlisting></para>
 <para>Please refer to <ref refid="ConditionalTasking" kindref="compound">Conditional Tasking</ref> for details. </para>
         </detaileddescription>
@@ -436,10 +436,10 @@ The example below demonstrates a taskflow composition using the <computeroutput>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>t2<sp/>is<sp/>partially<sp/>composed<sp/>of<sp/>t1</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>comp<sp/>=<sp/>t2.<ref refid="classtf_1_1FlowBuilder_1ac6f22228d4c2ea2e643c4b0d42c0e92a" kindref="member">composed_of</ref>(t1);</highlight></codeline>
-<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Initialize<sp/>=<sp/>t2.<ref refid="classtf_1_1FlowBuilder_1a60d7a666cab71ecfa3010b2efb0d6b57" kindref="member">emplace</ref>([](){<sp/><ref refid="cpp/io/basic_ostream" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::cout</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;t2&quot;</highlight><highlight class="normal">;<sp/>});</highlight></codeline>
-<codeline><highlight class="normal">Initialize.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(comp);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Init<sp/>=<sp/>t2.<ref refid="classtf_1_1FlowBuilder_1a60d7a666cab71ecfa3010b2efb0d6b57" kindref="member">emplace</ref>([](){<sp/><ref refid="cpp/io/basic_ostream" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::cout</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;t2&quot;</highlight><highlight class="normal">;<sp/>});</highlight></codeline>
+<codeline><highlight class="normal">Init.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(comp);</highlight></codeline>
 </programlisting></para>
-<para>The taskflow object <computeroutput>t2</computeroutput> is composed of another taskflow object <computeroutput>t1</computeroutput>, preceded by another static task <computeroutput>Initialize</computeroutput>. When taskflow <computeroutput>t2</computeroutput> is submitted to an executor, <computeroutput>Initialize</computeroutput> will run first and then <computeroutput>comp</computeroutput> which spwans its definition in taskflow <computeroutput>t1</computeroutput>.</para>
+<para>The taskflow object <computeroutput>t2</computeroutput> is composed of another taskflow object <computeroutput>t1</computeroutput>, preceded by another static task <computeroutput>Init</computeroutput>. When taskflow <computeroutput>t2</computeroutput> is submitted to an executor, <computeroutput>Init</computeroutput> will run first and then <computeroutput>comp</computeroutput> which spwans its definition in taskflow <computeroutput>t1</computeroutput>.</para>
 <para>The target <computeroutput>object</computeroutput> being composed must define the method <computeroutput>T::graph()</computeroutput> that returns a reference to a graph object of type <ref refid="classtf_1_1Graph" kindref="compound">tf::Graph</ref> such that it can interact with the executor. For example:</para>
 <para><programlisting filename=".cpp"><codeline><highlight class="comment">//<sp/>custom<sp/>struct</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">MyObj<sp/>{</highlight></codeline>
@@ -1174,7 +1174,7 @@ The task spawns asynchronous tasks that applies the callable object to two input
         </templateparamlist>
         <type><ref refid="classtf_1_1Task" kindref="compound">Task</ref></type>
         <definition>Task tf::FlowBuilder::reduce</definition>
-        <argsstring>(B first, E last, T &amp;Initialize, O bop, P &amp;&amp;part=P())</argsstring>
+        <argsstring>(B first, E last, T &amp;Init, O bop, P &amp;&amp;part=P())</argsstring>
         <name>reduce</name>
         <qualifiedname>tf::FlowBuilder::reduce</qualifiedname>
         <param>
@@ -1187,7 +1187,7 @@ The task spawns asynchronous tasks that applies the callable object to two input
         </param>
         <param>
           <type>T &amp;</type>
-          <declname>Initialize</declname>
+          <declname>Init</declname>
         </param>
         <param>
           <type>O</type>
@@ -1261,7 +1261,7 @@ The task spawns asynchronous tasks that applies the callable object to two input
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>Initialize</parametername>
+<parametername>Init</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>initial value of the reduction and the storage for the reduced result </para>
@@ -1286,9 +1286,9 @@ The task spawns asynchronous tasks that applies the callable object to two input
 </parameterlist>
 <simplesect kind="return"><para>a <ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref> handle</para>
 </simplesect>
-The task spawns asynchronous tasks to perform parallel reduction over <computeroutput>Initialize</computeroutput> and the elements in the range <computeroutput>[first, last)</computeroutput>. The reduced result is store in <computeroutput>Initialize</computeroutput>. This method is equivalent to the parallel execution of the following loop:</para>
+The task spawns asynchronous tasks to perform parallel reduction over <computeroutput>Init</computeroutput> and the elements in the range <computeroutput>[first, last)</computeroutput>. The reduced result is store in <computeroutput>Init</computeroutput>. This method is equivalent to the parallel execution of the following loop:</para>
 <para><programlisting filename=".cpp"><codeline><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>itr=first;<sp/>itr!=last;<sp/>itr++)<sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>Initialize<sp/>=<sp/>bop(Initialize,<sp/>*itr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Init<sp/>=<sp/>bop(Init,<sp/>*itr);</highlight></codeline>
 <codeline><highlight class="normal">}</highlight></codeline>
 </programlisting></para>
 <para>Iterators are templated to enable stateful range using <ref refid="cpp/utility/functional/reference_wrapper" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::reference_wrapper</ref>.</para>
@@ -1322,7 +1322,7 @@ The task spawns asynchronous tasks to perform parallel reduction over <computero
         </templateparamlist>
         <type><ref refid="classtf_1_1Task" kindref="compound">Task</ref></type>
         <definition>Task tf::FlowBuilder::transform_reduce</definition>
-        <argsstring>(B first, E last, T &amp;Initialize, BOP bop, UOP uop, P &amp;&amp;part=P())</argsstring>
+        <argsstring>(B first, E last, T &amp;Init, BOP bop, UOP uop, P &amp;&amp;part=P())</argsstring>
         <name>transform_reduce</name>
         <qualifiedname>tf::FlowBuilder::transform_reduce</qualifiedname>
         <param>
@@ -1335,7 +1335,7 @@ The task spawns asynchronous tasks to perform parallel reduction over <computero
         </param>
         <param>
           <type>T &amp;</type>
-          <declname>Initialize</declname>
+          <declname>Init</declname>
         </param>
         <param>
           <type>BOP</type>
@@ -1421,7 +1421,7 @@ The task spawns asynchronous tasks to perform parallel reduction over <computero
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>Initialize</parametername>
+<parametername>Init</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>initial value of the reduction and the storage for the reduced result </para>
@@ -1454,9 +1454,9 @@ The task spawns asynchronous tasks to perform parallel reduction over <computero
 </parameterlist>
 <simplesect kind="return"><para>a <ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref> handle</para>
 </simplesect>
-The task spawns asynchronous tasks to perform parallel reduction over <computeroutput>Initialize</computeroutput> and the transformed elements in the range <computeroutput>[first, last)</computeroutput>. The reduced result is store in <computeroutput>Initialize</computeroutput>. This method is equivalent to the parallel execution of the following loop:</para>
+The task spawns asynchronous tasks to perform parallel reduction over <computeroutput>Init</computeroutput> and the transformed elements in the range <computeroutput>[first, last)</computeroutput>. The reduced result is store in <computeroutput>Init</computeroutput>. This method is equivalent to the parallel execution of the following loop:</para>
 <para><programlisting filename=".cpp"><codeline><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>itr=first;<sp/>itr!=last;<sp/>itr++)<sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>Initialize<sp/>=<sp/>bop(Initialize,<sp/>uop(*itr));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Init<sp/>=<sp/>bop(Init,<sp/>uop(*itr));</highlight></codeline>
 <codeline><highlight class="normal">}</highlight></codeline>
 </programlisting></para>
 <para>Iterators are templated to enable stateful range using <ref refid="cpp/utility/functional/reference_wrapper" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::reference_wrapper</ref>.</para>
@@ -1609,7 +1609,7 @@ Performs the cumulative sum (aka prefix sum, aka scan) of the input range and wr
         </templateparamlist>
         <type><ref refid="classtf_1_1Task" kindref="compound">Task</ref></type>
         <definition>Task tf::FlowBuilder::inclusive_scan</definition>
-        <argsstring>(B first, E last, D d_first, BOP bop, T Initialize)</argsstring>
+        <argsstring>(B first, E last, D d_first, BOP bop, T Init)</argsstring>
         <name>inclusive_scan</name>
         <qualifiedname>tf::FlowBuilder::inclusive_scan</qualifiedname>
         <param>
@@ -1630,7 +1630,7 @@ Performs the cumulative sum (aka prefix sum, aka scan) of the input range and wr
         </param>
         <param>
           <type>T</type>
-          <declname>Initialize</declname>
+          <declname>Init</declname>
         </param>
         <briefdescription>
 <para>creates an STL-styled parallel inclusive-scan task with an initial value </para>
@@ -1711,7 +1711,7 @@ Performs the cumulative sum (aka prefix sum, aka scan) of the input range and wr
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>Initialize</parametername>
+<parametername>Init</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>initial value</para>
@@ -1755,7 +1755,7 @@ Performs the cumulative sum (aka prefix sum, aka scan) of the input range and wr
         </templateparamlist>
         <type><ref refid="classtf_1_1Task" kindref="compound">Task</ref></type>
         <definition>Task tf::FlowBuilder::exclusive_scan</definition>
-        <argsstring>(B first, E last, D d_first, T Initialize, BOP bop)</argsstring>
+        <argsstring>(B first, E last, D d_first, T Init, BOP bop)</argsstring>
         <name>exclusive_scan</name>
         <qualifiedname>tf::FlowBuilder::exclusive_scan</qualifiedname>
         <param>
@@ -1772,7 +1772,7 @@ Performs the cumulative sum (aka prefix sum, aka scan) of the input range and wr
         </param>
         <param>
           <type>T</type>
-          <declname>Initialize</declname>
+          <declname>Init</declname>
         </param>
         <param>
           <type>BOP</type>
@@ -1849,7 +1849,7 @@ Performs the cumulative sum (aka prefix sum, aka scan) of the input range and wr
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>Initialize</parametername>
+<parametername>Init</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>initial value </para>
@@ -2051,7 +2051,7 @@ Write the cumulative sum (aka prefix sum, aka scan) of the input range to the ou
         </templateparamlist>
         <type><ref refid="classtf_1_1Task" kindref="compound">Task</ref></type>
         <definition>Task tf::FlowBuilder::transform_inclusive_scan</definition>
-        <argsstring>(B first, E last, D d_first, BOP bop, UOP uop, T Initialize)</argsstring>
+        <argsstring>(B first, E last, D d_first, BOP bop, UOP uop, T Init)</argsstring>
         <name>transform_inclusive_scan</name>
         <qualifiedname>tf::FlowBuilder::transform_inclusive_scan</qualifiedname>
         <param>
@@ -2076,7 +2076,7 @@ Write the cumulative sum (aka prefix sum, aka scan) of the input range to the ou
         </param>
         <param>
           <type>T</type>
-          <declname>Initialize</declname>
+          <declname>Init</declname>
         </param>
         <briefdescription>
 <para>creates an STL-styled parallel transform-inclusive scan task </para>
@@ -2173,7 +2173,7 @@ Write the cumulative sum (aka prefix sum, aka scan) of the input range to the ou
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>Initialize</parametername>
+<parametername>Init</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>initial value</para>
@@ -2222,7 +2222,7 @@ Write the cumulative sum (aka prefix sum, aka scan) of the input range to the ou
         </templateparamlist>
         <type><ref refid="classtf_1_1Task" kindref="compound">Task</ref></type>
         <definition>Task tf::FlowBuilder::transform_exclusive_scan</definition>
-        <argsstring>(B first, E last, D d_first, T Initialize, BOP bop, UOP uop)</argsstring>
+        <argsstring>(B first, E last, D d_first, T Init, BOP bop, UOP uop)</argsstring>
         <name>transform_exclusive_scan</name>
         <qualifiedname>tf::FlowBuilder::transform_exclusive_scan</qualifiedname>
         <param>
@@ -2239,7 +2239,7 @@ Write the cumulative sum (aka prefix sum, aka scan) of the input range to the ou
         </param>
         <param>
           <type>T</type>
-          <declname>Initialize</declname>
+          <declname>Init</declname>
         </param>
         <param>
           <type>BOP</type>
@@ -2344,7 +2344,7 @@ Write the cumulative sum (aka prefix sum, aka scan) of the input range to the ou
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>Initialize</parametername>
+<parametername>Init</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>initial value</para>

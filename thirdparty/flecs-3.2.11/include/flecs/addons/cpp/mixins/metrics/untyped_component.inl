@@ -10,7 +10,7 @@
  * @{
  */
 
-/** Initialize member as metric.
+/** Register member as metric.
  * When no explicit name is provided, this operation will derive the metric name
  * from the member name. When the member name is "value", the operation will use
  * the name of the component.

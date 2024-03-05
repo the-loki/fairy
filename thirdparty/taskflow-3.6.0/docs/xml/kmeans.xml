@@ -164,12 +164,12 @@
 <codeline><highlight class="normal"><sp/><sp/><ref refid="cpp/container/vector" kindref="compound" external="/Users/twhuang/Code/taskflow/doxygen/cppreference-doxygen-web.tag.xml">std::vector&lt;float&gt;</ref><sp/>sx(K),<sp/>sy(K),<sp/>mx(K),<sp/>my(K);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>initial<sp/>centroids</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Initialize<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>Init<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;K;<sp/>++i)<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mx[i]<sp/>=<sp/>px[i];</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>my[i]<sp/>=<sp/>py[i];</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>}).name(</highlight><highlight class="stringliteral">&quot;Initialize&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}).name(</highlight><highlight class="stringliteral">&quot;Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>clear<sp/>the<sp/>storage</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><ref refid="classtf_1_1Task" kindref="compound">tf::Task</ref><sp/>clean_up<sp/>=<sp/>taskflow.emplace([&amp;](){</highlight></codeline>
@@ -215,7 +215,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(m++<sp/>&lt;<sp/>M)<sp/>?<sp/>0<sp/>:<sp/>1;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>}).name(</highlight><highlight class="stringliteral">&quot;converged?&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>Initialize.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(clean_up);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Init.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(clean_up);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>clean_up.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(pf);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>pf.<ref refid="classtf_1_1Task_1a8c78c453295a553c1c016e4062da8588" kindref="member">precede</ref>(update_cluster);</highlight></codeline>
@@ -229,7 +229,7 @@
 <para>The taskflow consists of two parts, a <computeroutput>clean_up</computeroutput> task and a parallel-for graph. The former cleans up the storage <computeroutput>sx</computeroutput>, <computeroutput>sy</computeroutput>, and <computeroutput>c</computeroutput> that are used to average points for new centroids, and the later parallelizes the searching for nearest centroids across individual points using 12 tasks (may vary depending on the machine). If the iteration count is smaller than <computeroutput>M</computeroutput>, the condition task returns 0 to let the execution path go back to <computeroutput>clean_up</computeroutput>. Otherwise, it returns 1 to stop (i.e., no successor tasks at index 1). The taskflow graph is illustrated below:</para>
 <para><dotfile name="kmeans_2.dot"></dotfile>
 </para>
-<para>The scheduler starts with <computeroutput>Initialize</computeroutput>, moves on to <computeroutput>clean_up</computeroutput>, and then enters the parallel-for task <computeroutput>paralle-for</computeroutput> that spawns a subflow of 12 workers to perform parallel iterations. When <computeroutput>parallel-for</computeroutput> completes, it updates the cluster centroids and checks if they have converged through a condition task. If not, the condition task informs the scheduler to go back to <computeroutput>clean_up</computeroutput> and then <computeroutput>parallel-for</computeroutput>; otherwise, it returns a nominal index to stop the scheduler.</para>
+<para>The scheduler starts with <computeroutput>Init</computeroutput>, moves on to <computeroutput>clean_up</computeroutput>, and then enters the parallel-for task <computeroutput>paralle-for</computeroutput> that spawns a subflow of 12 workers to perform parallel iterations. When <computeroutput>parallel-for</computeroutput> completes, it updates the cluster centroids and checks if they have converged through a condition task. If not, the condition task informs the scheduler to go back to <computeroutput>clean_up</computeroutput> and then <computeroutput>parallel-for</computeroutput>; otherwise, it returns a nominal index to stop the scheduler.</para>
 </sect1>
 <sect1 id="kmeans_1KMeansBenchmarking">
 <title>Benchmarking</title>
