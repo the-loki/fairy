@@ -1405,7 +1405,7 @@ EcsOnStore
 <li><b class="tab-title">C++</b>
 
 ```cpp
-flecs::OnLoad
+flecs::OnPreUpdate
 flecs::PostLoad
 flecs::PreUpdate
 flecs::OnUpdate
@@ -1418,7 +1418,7 @@ flecs::OnStore
 <li><b class="tab-title">C#</b>
 
 ```cs
-Ecs.OnLoad
+Ecs.OnPreUpdate
 Ecs.PostLoad
 Ecs.PreUpdate
 Ecs.OnUpdate

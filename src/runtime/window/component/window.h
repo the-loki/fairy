@@ -15,6 +15,10 @@ struct Window {
 	std::string title_;
 	glm::ivec2 size_{};
 	GLFWwindow *window_ = nullptr;
+
+	static Window CreateDefault() {
+		return Window{.title_ = "Fairy", .size_ = {1280, 720}, .window_ = nullptr};
+	}
 };
 
 }

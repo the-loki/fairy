@@ -4,26 +4,33 @@
 
 #include <runtime/engine.h>
 #include <iostream>
+#include <thread>
+#include <runtime/window/module.h>
 
 namespace fairy::runtime {
 
-bool Engine::Init(const InitEngineConfig &config) {
-	window_ = std::make_shared<platform::Window>();
-	window_->Init(config.window_config_);
-
-	if (!window_->Open()) {
-		window_.reset();
-		return false;
-	}
+bool Engine::Init() {
+//	window_ = std::make_shared<platform::Window>();
+//	window_->Init(config.window_config_);
+//
+//	if (!window_->Open()) {
+//		window_.reset();
+//		return false;
+//	}
 
 	world_ = std::make_shared<flecs::world>();
+	auto threadNum = static_cast<int32_t>(std::thread::hardware_concurrency());
+	world_->set_threads(threadNum);
 
 	return true;
 }
 
 void Engine::Start() {
-	while (!ShouldFinish() && world_->progress()) {
-		WindowLoop();
+	window::Initialize(*world_);
+
+
+	while (world_->progress()) {
+//		WindowLoop();
 	}
 
 	world_->quit();

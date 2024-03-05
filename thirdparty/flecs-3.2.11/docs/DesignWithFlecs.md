@@ -91,7 +91,7 @@ Phases and pipelines are the primitives that Flecs uses to order systems. A pipe
 ### Selecting a Phase
 When you create a system, you can assign a phase to it. By default, that phase is `OnUpdate`. Flecs comes with a whole bunch of phases though, and just looking at the whole list can feel a bit overwhelming:
 
-- `OnLoad`
+- `OnPreUpdate`
 - `PostLoad`
 - `PreUpdate`
 - `OnUpdate`
@@ -104,7 +104,7 @@ So what do these all mean? Actually they mean nothing at all! They are just tags
 
 There are some conventions around the builtin phases, and following them helps to ensure that your code works well with the Flecs module ecosystem. Here they are:
 
-### OnLoad
+### OnPreUpdate
 This phase contains all the systems that load data into your ECS. This would be a good place to load keyboard and mouse inputs.
 
 ### PostLoad

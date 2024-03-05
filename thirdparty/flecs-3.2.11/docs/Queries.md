@@ -592,7 +592,7 @@ flecs::filter<> f = world.filter_builder()
 Components can also be queried for by name. To query for component types by name, they have to be used or registered first.
 
 ```cpp
-// Register component type so we can look it up by name
+// Initialize component type so we can look it up by name
 world.component<Position>();
 
 // Create entity with name so we can look it up
@@ -616,7 +616,7 @@ Any named entity can be specified this way. Consider:
 ```cpp
 struct Npc { };
 
-// Register component type so we can look it up by name
+// Initialize component type so we can look it up by name
 world.component<Npc>();
 
 // Create entity with name so we can look it up

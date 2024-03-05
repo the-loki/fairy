@@ -10,17 +10,13 @@
 
 namespace fairy::runtime {
 
-struct InitEngineConfig {
-	platform::InitWindowConfig window_config_;
-};
-
 class Engine : public core::NonCopyableAndMovable {
 public:
 	Engine() = default;
 	~Engine() = default;
 
 	virtual void Start();
-	virtual bool Init(const InitEngineConfig &config);
+	virtual bool Init();
 
 protected:
 	[[nodiscard]] bool ShouldFinish() const;

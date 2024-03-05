@@ -469,7 +469,7 @@ typedef struct Position {
 int main() {
     ecs_world_t *world = ecs_init();
 
-    // Register the component with the world
+    // Initialize the component with the world
     ECS_COMPONENT(world, Position);
 
     // Create a new entity with the component
@@ -523,7 +523,7 @@ ecs_entity_t create_entity(ecs_world_t *world) {
 int main(int argc, char *argv[]) {
     ecs_world_t *world = ecs_init();
 
-    // Register component, assign id to the global component variable
+    // Initialize component, assign id to the global component variable
     ECS_COMPONENT_DEFINE(world, Position);
 
     ecs_entity_t e = create_entity(world);
@@ -643,7 +643,7 @@ Tags are much like components, but they are not associated with a data type. Tag
 int main() {
     ecs_world_t *world = ecs_init();
 
-    // Register the tag with the world. There is no Enemy type
+    // Initialize the tag with the world. There is no Enemy type
     ECS_TAG(world, Enemy);
 
     // Add the Enemy tag

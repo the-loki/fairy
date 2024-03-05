@@ -558,7 +558,7 @@ Flecs has the following builtin phases, listed in topology order:
 <li><b class="tab-title">C++</b>
 
 - `flecs::OnStart`
-- `flecs::OnLoad`
+- `flecs::OnPreUpdate`
 - `flecs::PostLoad`
 - `flecs::PreUpdate`
 - `flecs::OnUpdate`
@@ -570,7 +570,7 @@ Flecs has the following builtin phases, listed in topology order:
 <li><b class="tab-title">C#</b>
 
 - `Ecs.OnStart`
-- `Ecs.OnLoad`
+- `Ecs.OnPreUpdate`
 - `Ecs.PostLoad`
 - `Ecs.PreUpdate`
 - `Ecs.OnUpdate`
