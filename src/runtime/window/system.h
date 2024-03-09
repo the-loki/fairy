@@ -10,7 +10,7 @@
 namespace fairy::runtime::window {
 
 void Initialize(flecs::world & world);
-void SetupGlfwWindow(flecs::entity entity, Window &window);
+void SetupGLFWWindow(flecs::entity entity, Window &window);
 void UpdateWindow(flecs::entity entity, Window &window);
 
 }

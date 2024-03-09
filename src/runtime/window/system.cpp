@@ -13,7 +13,7 @@ void Initialize(flecs::world & world) {
 	using GraphicsContext = fairy::runtime::render::GraphicsContext;
 
 	world.entity().set(fairy::runtime::window::Window::CreateDefault());
-	world.system<Window>().kind(flecs::OnStart).write<Window>().each(SetupGlfwWindow);
+	world.system<Window>().kind(flecs::OnStart).write<Window>().each(SetupGLFWWindow);
 	world.system<Window>().kind(flecs::PreUpdate).write<GraphicsContext>().each(UpdateWindow);
 }
 

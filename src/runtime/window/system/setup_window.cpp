@@ -13,7 +13,7 @@ static void PrintGlfwError(int error, const char *description) {
 	printf("GLFW Error %d: %s\n", error, description);
 }
 
-void SetupGlfwWindow(flecs::entity entity, Window &window) {
+void SetupGLFWWindow(flecs::entity entity, Window &window) {
 	using GraphicsContext = fairy::runtime::render::GraphicsContext;
 
 	glfwSetErrorCallback(PrintGlfwError);
