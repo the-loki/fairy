@@ -23,18 +23,18 @@ using Window = fairy::runtime::window::Window;
 
 namespace fairy::runtime::render {
 
-void SetupGraphicsContext(GraphicsContext &graphics_context, const Window &window) {
+void SetupGraphicsContext(GraphicsContext &ctx, const Window &window) {
 	using namespace webgpu_extra;
 
 #ifndef __EMSCRIPTEN__
 	WGPUInstanceDescriptor instance_desc = {};
 	instance_desc.nextInChain = nullptr;
-	graphics_context.instance_ = wgpuCreateInstance(&instance_desc);
-	graphics_context.surface_ = glfwGetWGPUSurface(graphics_context.instance_, window.window_);
+	ctx.instance_ = wgpuCreateInstance(&instance_desc);
+	ctx.surface_ = glfwGetWGPUSurface(ctx.instance_, window.window_);
 
 	WGPURequestAdapterOptions adapter_opts = {};
 	adapter_opts.nextInChain = nullptr;
-	adapter_opts.compatibleSurface = graphics_context.surface_;
+	adapter_opts.compatibleSurface = ctx.surface_;
 
 #ifdef _WIN32
 	adapter_opts.backendType = WGPUBackendType_D3D12;
@@ -44,7 +44,7 @@ void SetupGraphicsContext(GraphicsContext &graphics_context, const Window &windo
 	adapter_opts.backendType = WGPUBackendType_Vulkan;
 #endif
 
-	graphics_context.adapter_ = request_adapter(graphics_context.instance_, &adapter_opts);
+	ctx.adapter_ = request_adapter(ctx.instance_, &adapter_opts);
 
 	WGPUDeviceDescriptor device_desc = {};
 	device_desc.nextInChain = nullptr;
@@ -53,17 +53,17 @@ void SetupGraphicsContext(GraphicsContext &graphics_context, const Window &windo
 	device_desc.requiredLimits = nullptr;
 	device_desc.defaultQueue.nextInChain = nullptr;
 	device_desc.defaultQueue.label = "WebGPU Default Queue";
-	graphics_context.device_ = request_device(graphics_context.adapter_, &device_desc);
+	ctx.device_ = request_device(ctx.adapter_, &device_desc);
 #else
 	this->device = emscripten_webgpu_get_device();
 #endif
 
-	if (!graphics_context.device_) {
+	if (!ctx.device_) {
 		glfwSetWindowShouldClose(window.window_, GLFW_TRUE);
 		return;
 	}
 
-	wgpuDeviceSetUncapturedErrorCallback(graphics_context.device_, &OutputWebGPUError, nullptr);
+	wgpuDeviceSetUncapturedErrorCallback(ctx.device_, &OutputWebGPUError, nullptr);
 
 #ifdef __EMSCRIPTEN__
 	WGPUSurfaceDescriptorFromCanvasHTMLSelector selector = {};
@@ -78,8 +78,9 @@ void SetupGraphicsContext(GraphicsContext &graphics_context, const Window &windo
 	this->texture_format = wgpuSurfaceGetPreferredFormat(graphics_context.surface, nullptr);
 #endif
 
-	graphics_context.supported_limits_.nextInChain = nullptr;
-	wgpuDeviceGetLimits(graphics_context.device_, &(graphics_context.supported_limits_));
+	ctx.supported_limits_.nextInChain = nullptr;
+	wgpuDeviceGetLimits(ctx.device_, &(ctx.supported_limits_));
+	ctx.preferred_texture_format_ = wgpuSurfaceGetPreferredFormat(ctx.surface_, ctx.adapter_);
 }
 
 }

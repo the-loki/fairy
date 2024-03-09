@@ -18,8 +18,8 @@ struct GraphicsContext {
 	WGPUAdapter adapter_ = nullptr;
 	WGPUInstance instance_ = nullptr;
 	WGPUSwapChain swap_chain_ = nullptr;
-	WGPUTextureFormat texture_format_ = {};
 	WGPUSupportedLimits supported_limits_{};
+	WGPUTextureFormat preferred_texture_format_ = {};
 };
 
 }

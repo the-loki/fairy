@@ -14,7 +14,7 @@ namespace fairy::runtime::render {
 using Window = fairy::runtime::window::Window;
 
 void Initialize(flecs::world & world);
-void SetupGraphicsContext(GraphicsContext &graphics_context, const Window &window);
-void SetupSwapChain(GraphicsContext &graphics_context, const Window &window);
+void SetupGraphicsContext(GraphicsContext &ctx, const Window &window);
+void SetupSwapChain(GraphicsContext &ctx, const Window &window);
 
 }
