@@ -5,7 +5,7 @@
 
 
 #include <runtime/render/component/graphics_context.h>
-#include <runtime/render/utility.h>
+#include <runtime/extension/function.h>
 #include <runtime/window/component/window.h>
 
 #include <glfw3webgpu.h>
