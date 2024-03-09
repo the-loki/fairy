@@ -73,9 +73,8 @@ void SetupGraphicsContext(GraphicsContext &ctx, const Window &window) {
 	selector.chain.sType = WGPUSType_SurfaceDescriptorFromCanvasHTMLSelector;
 	WGPUSurfaceDescriptor surface_desc = {};
 	surface_desc.nextInChain = reinterpret_cast<WGPUChainedStruct*>(&selector);
-	this->instance = wgpuCreateInstance(nullptr);
-	this->surface = wgpuInstanceCreateSurface(graphics_context.instance, &surface_desc);
-	this->texture_format = wgpuSurfaceGetPreferredFormat(graphics_context.surface, nullptr);
+	ctx.instance = wgpuCreateInstance(nullptr);
+	ctx.surface = wgpuInstanceCreateSurface(ctx.instance, &surface_desc);
 #endif
 
 	ctx.supported_limits_.nextInChain = nullptr;

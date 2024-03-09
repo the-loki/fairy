@@ -17,9 +17,15 @@ void SetupSwapChain(GraphicsContext &ctx, const Window &window) {
 
 	if (ctx.swap_chain_) {
 		wgpuSwapChainRelease(ctx.swap_chain_);
+		ctx.swap_chain_ = nullptr;
 	}
 
 	ctx.swap_chain_size_ = window.size_;
+
+	if(window.size_.x == 0 || window.size_.y == 0){
+		return;
+	}
+
 	auto swap_chain_desc = WGPUSwapChainDescriptor{};
 	swap_chain_desc.width = window.size_.x;
 	swap_chain_desc.height = window.size_.y;
