@@ -21,8 +21,8 @@ bool Engine::Initialize() {
 }
 
 void Engine::Start() {
-	window::Initialize(*world_);
-	render::Initialize(*world_);
+	window::InitializeModule(*world_);
+	render::InitializeModule(*world_);
 
 	while (world_->progress()) {
 	}

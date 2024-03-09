@@ -1,12 +1,15 @@
 //
-// Created by loki on 2024/3/5.
+// Created by loki on 2024/3/9.
 //
 
-#include <runtime/render/system/render_system.h>
-#include <runtime/window/system/window_system.h>
+
+
+#include <runtime/render/component/graphics_context.h>
+#include <runtime/render/utility.h>
+#include <runtime/window/component/window.h>
+
 #include <glfw3webgpu.h>
 #include <webgpu_extra.h>
-#include <runtime/render/utility.h>
 
 #ifdef __EMSCRIPTEN__
 
@@ -16,14 +19,11 @@
 
 #endif
 
+using Window = fairy::runtime::window::Window;
+
 namespace fairy::runtime::render {
 
-void RenderSystem::Initialize(flecs::world &world) {
-	world.system<GraphicsContext, const Window>().kind(flecs::OnStart).each(RenderSystem::SetupGraphicsContext);
-	world.system<GraphicsContext, const Window>().kind(flecs::PreUpdate).each(RenderSystem::SetupSwapChain);
-}
-
-void RenderSystem::SetupGraphicsContext(GraphicsContext &graphics_context, const Window &window) {
+void SetupGraphicsContext(GraphicsContext &graphics_context, const Window &window) {
 	using namespace webgpu_extra;
 
 #ifndef __EMSCRIPTEN__
@@ -80,12 +80,6 @@ void RenderSystem::SetupGraphicsContext(GraphicsContext &graphics_context, const
 
 	graphics_context.supported_limits_.nextInChain = nullptr;
 	wgpuDeviceGetLimits(graphics_context.device_, &(graphics_context.supported_limits_));
-}
-
-void RenderSystem::SetupSwapChain(GraphicsContext &graphics_context, const RenderSystem::Window &window) {
-	if (window.size_.x!=graphics_context.swap_chain_size_.x || window.size_.y!=graphics_context.swap_chain_size_.y) {
-
-	}
 }
 
 }

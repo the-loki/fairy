@@ -6,12 +6,12 @@
 #pragma once
 
 #include <flecs.h>
-#include <runtime/render/system/render_system.h>
+#include <runtime/render/system.h>
 
 namespace fairy::runtime::render {
 
-inline void Initialize(flecs::world & world) {
-	RenderSystem::Initialize(world);
+inline void InitializeModule(flecs::world & world) {
+	Initialize(world);
 }
 
 }

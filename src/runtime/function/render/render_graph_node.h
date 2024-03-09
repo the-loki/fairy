@@ -10,7 +10,7 @@ namespace fairy::runtime::function::render {
 
 class RenderGraphNode {
 public:
-	explicit RenderGraphNode(const std::string_view& name);
+	explicit RenderGraphNode(const std::string_view &name);
 public:
 	std::string name_;
 };

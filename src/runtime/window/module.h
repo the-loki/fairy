@@ -6,12 +6,12 @@
 #pragma once
 
 #include <flecs.h>
-#include <runtime/window/system/window_system.h>
+#include <runtime/window/system.h>
 
 namespace fairy::runtime::window {
 
-inline void Initialize(flecs::world & world) {
-	WindowSystem::Initialize(world);
+void InitializeModule(flecs::world & world) {
+	Initialize(world);
 }
 
 }
